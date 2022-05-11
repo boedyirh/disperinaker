@@ -47,7 +47,7 @@ class PendidikanAk1Model extends Model
     public function cekSudahIsiPendidikan($rand_ak1){
 
         if($rand_ak1){
-            $cekSdhAmbil = DB::table('tbl_ak1_pendidikan')->where('rand_ak1', $rand_ak1)->where('NA', 1)
+            $cekSdhAmbil = DB::table('tbl_ak1_pendidikan')->where('rand_ak1', $rand_ak1)->where('NA', 1)->whereNotNull('file_pendukung')
             ->count();
             if ($cekSdhAmbil>0){
                 return true;
