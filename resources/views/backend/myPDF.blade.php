@@ -326,7 +326,6 @@
     <div>
       <table class="container-header">
         <tr>
-
           <td width=32%>Nomer Telp/HP</td>
           <td width=68%>: {{ substr($data_pemohon->nomer_hp, 0, 4) . "-" . substr($data_pemohon->nomer_hp, 4,4) . "-" . substr($data_pemohon->nomer_hp, 8,7) }}</td>
         </tr>
@@ -334,7 +333,6 @@
     </div>
 
     <table class="container-header">
-
         <tr>
           <td width= 80%  colspan="3"><b>Pendidikan Formal</b></td>
           <td width= 23%  rowspan="9" style="text-align: center">  Pengantar Kerja/Petugas<br>Antar Kerja<br><br><br><br><br>  Agoestin F. SH., M.Si</td>
@@ -358,84 +356,69 @@
           }
           $data_sma = $data_pendidikan->firstWhere('tingkat_pendidikan',3);
           if($data_sma){
-            $nama_sma = $data_sma->nama_institusi;
+            $nama_sma = $data_sma->nama_institusi.'/'.$data_sma->jurusan;
             $sma_lulus = $data_sma->tahun_lulus;
-            $sma_jurusan = $data_sma->jurusan;
           }else {
             $nama_sma ='-';
             $sma_lulus ='-';
-            $sma_jurusan ='-';
           }
 
           $data_diploma = $data_pendidikan->firstWhere('tingkat_pendidikan',4);
           if($data_diploma){
-            $nama_diploma = $data_diploma->nama_institusi;
+            $nama_diploma = $data_diploma->nama_institusi.'/'.$data_diploma->jurusan;
             $diploma_lulus = $data_diploma->tahun_lulus;
-            $diploma_jurusan = $data_diploma->jurusan;
+
 
           }else {
             $nama_diploma ='-';
             $diploma_lulus ='-';
-            $diploma_jurusan ='-';
           }
-
           $data_akta = $data_pendidikan->firstWhere('tingkat_pendidikan',5);
           if($data_akta){
-            $nama_akta = $data_akta->nama_institusi;
+            $nama_akta = $data_akta->nama_institusi.'/'.$data_akta->jurusan;
             $akta_lulus = $data_akta->tahun_lulus;
-            $akta_jurusan = $data_akta->jurusan;
-
-
           }else {
             $nama_akta ='-';
             $akta_lulus ='-';
-            $akta_jurusan ='-';
           }
-
           $data_pt = $data_pendidikan->firstWhere('tingkat_pendidikan',6);
           if($data_pt){
-            $nama_pt = $data_pt->nama_institusi;
+            $nama_pt = $data_pt->nama_institusi.'/'.$data_pt->jurusan;
             $pt_lulus = $data_pt->tahun_lulus;
-            $pt_jurusan = $data_pt->jurusan;
-
           }else {
             $nama_pt ='-';
             $pt_lulus ='-';
-            $pt_jurusan ='-';
           }
-
-
         @endphp
           <tr>
             <td width=32%>SD/Sederajat</td>
             <td width=35%>{{$nama_sd }}</td>
-            <td width= 10%>{{$sd_lulus }}</td>
+            <td width= 10%>Thn {{$sd_lulus }}</td>
           </tr>
         <tr>
           <td width=32%>SLTP/Sederajat</td>
           <td width=35%>{{$nama_smp }}</td>
-          <td width= 10%>{{$smp_lulus }}</td>
+          <td width= 10%>Thn {{$smp_lulus }}</td>
         </tr>
         <tr>
           <td width=32%>SLTA/SMK/Sederajat</td>
-          <td width=35%>{{$nama_sma }}/{{ $sma_jurusan }}</td>
-          <td width= 10%>{{$sma_lulus }}</td>
+          <td width=35%>{{$nama_sma }}</td>
+          <td width= 10%>Thn {{$sma_lulus }}</td>
         </tr>
-
         <tr>
           <td>D-1/D-2/D-3/D-4</td>
-          <td width=35%>{{$nama_diploma }}/{{ $diploma_jurusan }}</td>
-          <td width= 10%>{{$diploma_lulus }}</td>
+          <td width=35%>{{$nama_diploma }}</td>
+          <td width= 10%>Thn {{$diploma_lulus }}</td>
         </tr>
         <tr>
           <td>Akta-1/Akta-2/Akta-3/Akta-4</td>
-          <td width=35%>{{$nama_akta }}/{{ $akta_jurusan }}</td>
-          <td width= 10%>{{$akta_lulus }}</td>
+          <td width=35%>{{$nama_akta }}</td>
+          <td width= 10%>Thn {{$akta_lulus }}</td>
         </tr>
         <tr>
           <td>S1/S2/S3</td>
-          <td width=35%>{{$nama_pt }}/{{ $pt_jurusan }}</td>
-          <td width= 10%>{{$pt_lulus }}</td>
+          <td width=35%>{{$nama_pt }}</td>
+          <td width= 10%>Thn {{$pt_lulus }}</td>
         </tr>
         <tr>
           <td  colspan="3"><b>Keterampilan</b></td>
@@ -455,9 +438,6 @@
           <td></td>
           <td>Thn 2019</td>
         </tr>
-
-
       </table>
-
   </body>
 </html>
