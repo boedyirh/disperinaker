@@ -339,20 +339,96 @@
           <td width= 80%  colspan="3"><b>Pendidikan Formal</b></td>
           <td width= 23%  rowspan="9" style="text-align: center">  Pengantar Kerja/Petugas<br>Antar Kerja<br><br><br><br><br>  Agoestin F. SH., M.Si</td>
         </tr>
+        @php
+          $data_sd = $data_pendidikan->firstWhere('tingkat_pendidikan',1);
+          if($data_sd){
+            $nama_sd = $data_sd->nama_institusi;
+            $sd_lulus = $data_sd->tahun_lulus;
+          }else {
+            $nama_sd ='-';
+            $sd_lulus ='-';
+          }
+          $data_smp = $data_pendidikan->firstWhere('tingkat_pendidikan',2);
+          if($data_smp){
+            $nama_smp = $data_smp->nama_institusi;
+            $smp_lulus = $data_smp->tahun_lulus;
+          }else {
+            $nama_smp ='-';
+            $smp_lulus ='-';
+          }
+          $data_sma = $data_pendidikan->firstWhere('tingkat_pendidikan',3);
+          if($data_sma){
+            $nama_sma = $data_sma->nama_institusi;
+            $sma_lulus = $data_sma->tahun_lulus;
+          }else {
+            $nama_sma ='-';
+            $sma_lulus ='-';
+          }
+
+          $data_diploma = $data_pendidikan->firstWhere('tingkat_pendidikan',4);
+          if($data_diploma){
+            $nama_diploma = $data_diploma->nama_institusi;
+            $diploma_lulus = $data_diploma->tahun_lulus;
+
+          }else {
+            $nama_diploma ='-';
+            $diploma_lulus ='-';
+          }
+
+          $data_akta = $data_pendidikan->firstWhere('tingkat_pendidikan',5);
+          if($data_akta){
+            $nama_akta = $data_akta->nama_institusi;
+            $akta_lulus = $data_akta->tahun_lulus;
+
+          }else {
+            $nama_akta ='-';
+            $akta_lulus ='-';
+          }
+
+          $data_pt = $data_pendidikan->firstWhere('tingkat_pendidikan',6);
+          if($data_pt){
+            $nama_pt = $data_pt->nama_institusi;
+            $pt_lulus = $data_pt->tahun_lulus;
+            $pt_jurusan = $data_pt->jurusan;
+
+          }else {
+            $nama_pt ='-';
+            $pt_lulus ='-';
+            $pt_jurusan ='-';
+          }
+
+
+        @endphp
+          <tr>
+            <td width=32%>SD/Sederajat</td>
+            <td width=35%>{{$nama_sd }}</td>
+            <td width= 10%>{{$sd_lulus }}</td>
+          </tr>
         <tr>
           <td width=32%>SLTP/Sederajat</td>
-          <td width=35%>SMPN 3 Bojonegoro</td>
-          <td width= 10%>Thn 1999</td>
+          <td width=35%>{{$nama_smp }}</td>
+          <td width= 10%>{{$smp_lulus }}</td>
         </tr>
         <tr>
           <td width=32%>SLTA/SMK/Sederajat</td>
-          <td width=35%>SMAN 1 Bojonegoro</td>
-          <td width= 10%>Thn 1999</td>
+          <td width=35%>{{$nama_sma }}</td>
+          <td width= 10%>{{$sma_lulus }}</td>
+        </tr>
+
+        <tr>
+          <td>D-1/D-2/D-3/D-4</td>
+          <td width=35%>{{$nama_diploma }}</td>
+          <td width= 10%>{{$diploma_lulus }}</td>
+        </tr>
+        <tr>
+          <td>Akta-1/Akta-2/Akta-3/Akta-4</td>
+          <td width=35%>{{$nama_akta }}</td>
+          <td width= 10%>{{$akta_lulus }}</td>
         </tr>
         <tr>
           <td>S1/S2/S3</td>
-          <td>S1 Brawijaya/Teknik Elektro</td>
-          <td>Thn 2003</td>
+          <td width=35%>{{$nama_pt }} /{{ $pt_jurusan }}</td>
+          <td width= 10%>{{$pt_lulus }}</td>
         </tr>
         <tr>
           <td  colspan="3"><b>Keterampilan</b></td>
