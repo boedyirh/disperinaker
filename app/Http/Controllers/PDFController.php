@@ -66,23 +66,31 @@ class PDFController extends Controller
             'rekom' =>$this->MenuModel->allRekomData(),
         ];
 
-        $data_diri = Ak1Model::where('rand_ak1',$rand_ak1)
-        ->orderBy('ak1_id','asc')
-        ->first();
+        $sdh_ada_record =  $this->Ak1CetakModel->checkNomer($rand_ak1);
+        if(!$sdh_ada_record){
+            $data_diri = Ak1Model::where('rand_ak1',$rand_ak1)
+            ->orderBy('ak1_id','asc')
+            ->first();
 
 
-        $data_cetak =[
-            'rand_ak1'=>$rand_ak1,
-            'nama'=>$data_diri->nama,
-            'kecamatan'=>$data_diri->nama_kecamatan,
-            'keldesa'=>$data_diri->nama_keldesa,
-            'tahun'=>date("Y"),
-            'nomer_urut'=>$last_agenda['nomer'],
-            'tgl_ambil'=>date("Y-m-d"),
+            $data_cetak =[
+                'rand_ak1'=>$rand_ak1,
+                'nama'=>$data_diri->nama,
+                'kecamatan'=>$data_diri->nama_kecamatan,
+                'keldesa'=>$data_diri->nama_keldesa,
+                'tahun'=>date("Y"),
+                'nomer_urut'=>$last_agenda['nomer'],
+                'tgl_ambil'=>date("Y-m-d"),
 
-        ];
+            ];
 
-        $this->Ak1CetakModel->addData($data_cetak);
+            $this->Ak1CetakModel->addData($data_cetak);
+
+
+
+
+        }
+
 
 
         return PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'setPaper'=>'legal'])->loadView('backend.myPDF', $data)->stream();

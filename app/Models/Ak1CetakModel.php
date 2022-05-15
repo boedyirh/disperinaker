@@ -62,5 +62,15 @@ class Ak1CetakModel extends Model
         return DB::table('tbl_cetak')->insertGetId($data);
     }
 
+    public function checkNomer($rand_ak1)
+    {
+        if(DB::table('tbl_cetak')->where('rand_ak1',$rand_ak1)->orderBy('id', 'DESC')->first())
+        {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
