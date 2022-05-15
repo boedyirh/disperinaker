@@ -360,29 +360,36 @@
           if($data_sma){
             $nama_sma = $data_sma->nama_institusi;
             $sma_lulus = $data_sma->tahun_lulus;
+            $sma_jurusan = $data_sma->jurusan;
           }else {
             $nama_sma ='-';
             $sma_lulus ='-';
+            $sma_jurusan ='-';
           }
 
           $data_diploma = $data_pendidikan->firstWhere('tingkat_pendidikan',4);
           if($data_diploma){
             $nama_diploma = $data_diploma->nama_institusi;
             $diploma_lulus = $data_diploma->tahun_lulus;
+            $diploma_jurusan = $data_diploma->jurusan;
 
           }else {
             $nama_diploma ='-';
             $diploma_lulus ='-';
+            $diploma_jurusan ='-';
           }
 
           $data_akta = $data_pendidikan->firstWhere('tingkat_pendidikan',5);
           if($data_akta){
             $nama_akta = $data_akta->nama_institusi;
             $akta_lulus = $data_akta->tahun_lulus;
+            $akta_jurusan = $data_akta->jurusan;
+
 
           }else {
             $nama_akta ='-';
             $akta_lulus ='-';
+            $akta_jurusan ='-';
           }
 
           $data_pt = $data_pendidikan->firstWhere('tingkat_pendidikan',6);
@@ -411,23 +418,23 @@
         </tr>
         <tr>
           <td width=32%>SLTA/SMK/Sederajat</td>
-          <td width=35%>{{$nama_sma }}</td>
+          <td width=35%>{{$nama_sma }}/{{ $sma_jurusan }}</td>
           <td width= 10%>{{$sma_lulus }}</td>
         </tr>
 
         <tr>
           <td>D-1/D-2/D-3/D-4</td>
-          <td width=35%>{{$nama_diploma }}</td>
+          <td width=35%>{{$nama_diploma }}/{{ $diploma_jurusan }}</td>
           <td width= 10%>{{$diploma_lulus }}</td>
         </tr>
         <tr>
           <td>Akta-1/Akta-2/Akta-3/Akta-4</td>
-          <td width=35%>{{$nama_akta }}</td>
+          <td width=35%>{{$nama_akta }}/{{ $akta_jurusan }}</td>
           <td width= 10%>{{$akta_lulus }}</td>
         </tr>
         <tr>
           <td>S1/S2/S3</td>
-          <td width=35%>{{$nama_pt }} /{{ $pt_jurusan }}</td>
+          <td width=35%>{{$nama_pt }}/{{ $pt_jurusan }}</td>
           <td width= 10%>{{$pt_lulus }}</td>
         </tr>
         <tr>
