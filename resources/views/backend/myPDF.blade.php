@@ -81,26 +81,35 @@
         <tr>
           <td     width=32%>Nomer Pendaftaran Pencari Kerja</td>
           <td    width=68%>
+            @php
+              $nomer_hari = date("d-m-Y");
+              $split_nomer_hari = str_split(($nomer_hari));
+
+              $nomer_urut = $last_agenda;
+              $tahun_ini = date("Y");
+              $nomer_urut_lz= str_pad($nomer_urut,6,"0",STR_PAD_LEFT);
+              $split_nomer_urut = str_split(($nomer_urut_lz));
+            @endphp
             <table class="container-inside">
               <tr>
-                <td class="borderall" width=5% style="text-align: center">1</td>
+                <td class="borderall" width=5% style="text-align: center">3</td>
+                <td  class="borderall" width=5% style="text-align: center">5</td>
                 <td  class="borderall" width=5% style="text-align: center">2</td>
-                <td  class="borderall" width=5% style="text-align: center">3</td>
-                <td  class="borderall" width=5% style="text-align: center">4</td>
+                <td  class="borderall" width=5% style="text-align: center">2</td>
                 <td width=5% class="notop-nobottom" style="text-align: center"></td>
-                <td class="borderall"  width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
+                <td class="borderall"  width=5% style="text-align: center">{{ $split_nomer_hari[0]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[1]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[3]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[4]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[8]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[9]}}</td>
                 <td width=5% class="notop-nobottom" style="text-align: center"></td>
-                <td class="borderall"  width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
+                <td class="borderall"  width=5% style="text-align: center">{{ $split_nomer_urut[0]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[1]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[2]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[3]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[4]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[5]}}</td>
             </table>
           </td>
         </tr>
@@ -130,7 +139,24 @@
     <div>
       <table class="container-header">
         <tr>
-          <td width=32%>Pas Photo</td>
+          <td width=32%>
+            <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Pas Foto
+            <br>
+            <br>
+            <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tanda tangan
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pencari Kerja
+
+          </td>
           <td width=68% style="margin-left:0px;">  Ketentuan :
             <ol >
               <li  >Berlaku Nasional.</li>
@@ -146,7 +172,7 @@
     <div>
       <table class="container-header">
         <tr>
-          <td width=32%>Tanda Tangan <br />Pencari Kerja  </td>
+          <td width=32%> </td>
           <td width=68%>
             <table class="container-inside">
               <tr>
@@ -445,7 +471,7 @@
             <tr>
                 <td> {{ $dataItem->nama_jenispelatihan}}</td>
                 <td> {{ $dataItem->lembaga_pelatihan}}</td>
-                <td class="text-center"> {{ $dataItem->tahun}}</td>
+                <td class="text-center">Thn {{ $dataItem->tahun}}</td>
             </tr>
         @endforeach
 
@@ -453,7 +479,7 @@
         <tr>
             <td> {{ $dataItem->jabatan}}</td>
             <td> {{ $dataItem->nama_perusahaan}}</td>
-            <td class="text-center"> {{ $dataItem->tahun}}</td>
+            <td class="text-center">Thn {{ $dataItem->tahun}}</td>
         </tr>
     @endforeach
     </table>

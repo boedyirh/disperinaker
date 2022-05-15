@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "."
+	},
+	{
+		"path": "../disperinaker3/node_modules"
+	},
+	{
+		"path": "../disperinaker3"
+	}
+],
+  "settings": {}
+}
