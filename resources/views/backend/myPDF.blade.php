@@ -82,11 +82,11 @@
           <td     width=32%>Nomer Pendaftaran Pencari Kerja</td>
           <td    width=68%>
             @php
-              $nomer_hari = date("d-m-Y");
-              $split_nomer_hari = str_split(($nomer_hari));
+              //$tgl_ini = $tgl_ambil;
+              //$nomer_hari = date("d-m-Y");
+              $split_nomer_hari = str_split(($tgl_ambil));
 
               $nomer_urut = $last_agenda;
-              $tahun_ini = date("Y");
               $nomer_urut_lz= str_pad($nomer_urut,6,"0",STR_PAD_LEFT);
               $split_nomer_urut = str_split(($nomer_urut_lz));
             @endphp
@@ -97,12 +97,13 @@
                 <td  class="borderall" width=5% style="text-align: center">2</td>
                 <td  class="borderall" width=5% style="text-align: center">2</td>
                 <td width=5% class="notop-nobottom" style="text-align: center"></td>
-                <td class="borderall"  width=5% style="text-align: center">{{ $split_nomer_hari[0]}}</td>
-                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[1]}}</td>
-                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[3]}}</td>
-                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[4]}}</td>
-                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[8]}}</td>
+                <td class="borderall"  width=5% style="text-align: center">{{ $split_nomer_hari[8]}}</td>
                 <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[9]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[5]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[6]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[2]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[3]}}</td>
+
                 <td width=5% class="notop-nobottom" style="text-align: center"></td>
                 <td class="borderall"  width=5% style="text-align: center">{{ $split_nomer_urut[0]}}</td>
                 <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[1]}}</td>

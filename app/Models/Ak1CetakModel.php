@@ -14,12 +14,18 @@ class Ak1CetakModel extends Model
     use HasFactory;
 
     public function getLastAgenda($year,$rand_ak1){
-        //Check apakah sudah ada record dengan rand_id tersebut.
+        //Check apakah sudah ada record dengan rand_id tersebut. Jika sudah ada ambil nomernya
         if(DB::table('tbl_cetak')->where('tahun',$year)->where('rand_ak1',$rand_ak1)->orderBy('id', 'DESC')->first())
         {
             $lastAgenda = DB::table('tbl_cetak')->where('tahun',$year)->orderBy('id', 'DESC')->first();
-            $lastAgenca_inc = $lastAgenda->nomer_urut;
-            return $lastAgenca_inc;
+
+            $nomer_existing = $lastAgenda->nomer_urut;
+            $tgl_ambil_existing = $lastAgenda->tgl_ambil;
+            $data= [
+                'nomer'=>$nomer_existing,
+                'tgl_ambil' =>$tgl_ambil_existing,
+            ];
+            return $data;
 
         } else{
 
@@ -27,10 +33,20 @@ class Ak1CetakModel extends Model
             {
                 $lastAgenda = DB::table('tbl_cetak')->where('tahun',$year)->orderBy('id', 'DESC')->first();
                 $lastAgenca_inc = $lastAgenda->nomer_urut+1;
-                return $lastAgenca_inc;
+                $data= [
+                    'nomer'=>$lastAgenca_inc,
+                    'tgl_ambil' =>date("Y-m-d"),
+                ];
+
+                  return $data;
             }
             else {
-                return 1; //Jika nol, berarti nomer agenda akan reset ke 1. (setiap ganti tahun)
+
+                $data= [
+                    'nomer'=>1,
+                    'tgl_ambil' =>date("Y-m-d"),
+                ];
+                return $data; //Jika nol, berarti nomer agenda akan reset ke 1. (setiap ganti tahun)
             }
 
         }

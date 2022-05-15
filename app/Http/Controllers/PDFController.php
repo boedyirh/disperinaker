@@ -53,8 +53,10 @@ class PDFController extends Controller
 
     {
         $last_agenda = $this->Ak1CetakModel->getLastAgenda(date('Y'),$rand_ak1);
+
         $data =[
-            'last_agenda'=>$last_agenda,
+            'last_agenda'=>$last_agenda['nomer'],
+            'tgl_ambil'=>$last_agenda['tgl_ambil'],
             'data_pemohon' =>$this->Ak1Model->detailData($rand_ak1),
             'data_pendidikan' =>$this->PendidikanAk1Model->pdfData($rand_ak1),
             'data_pelatihan' =>$this->PelatihanAk1Model->pdfData($rand_ak1),
@@ -68,13 +70,15 @@ class PDFController extends Controller
         ->orderBy('ak1_id','asc')
         ->first();
 
+
         $data_cetak =[
             'rand_ak1'=>$rand_ak1,
             'nama'=>$data_diri->nama,
             'kecamatan'=>$data_diri->nama_kecamatan,
             'keldesa'=>$data_diri->nama_keldesa,
             'tahun'=>date("Y"),
-            'nomer_urut'=>$last_agenda,
+            'nomer_urut'=>$last_agenda['nomer'],
+            'tgl_ambil'=>date("Y-m-d"),
 
         ];
 
