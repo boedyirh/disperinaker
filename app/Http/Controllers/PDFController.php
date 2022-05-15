@@ -59,8 +59,6 @@ class PDFController extends Controller
             'menu' =>$this->MenuModel->allData(),
             'layanan' =>$this->MenuModel->allLayananData(),
             'rekom' =>$this->MenuModel->allRekomData(),
-
-
         ];
 
 
