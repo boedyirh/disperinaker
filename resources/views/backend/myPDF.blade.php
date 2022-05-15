@@ -457,32 +457,60 @@
          @endif
 
         @if ($nama_pt!='-')
-        <tr>
-          <td width=32%>S1/S2/S3</td>
-          <td width=35%>{{$nama_pt }}</td>
-          <td width= 10%>{{$pt_lulus }}</td>
-        </tr>
+          <tr>
+            <td width=32%>S1/S2/S3</td>
+            <td width=35%>{{$nama_pt }}</td>
+            <td width= 10%>{{$pt_lulus }}</td>
+          </tr>
+          @else
+            <tr>
+              <td width=32%> SLTA/Sederajat</td>
+              <td width=35%>-</td>
+              <td width= 10% class="text-center">Thn -</td>
+            </tr>
+            <tr>
+              <td width=32%> S1/S2/S3</td>
+              <td width=35%>-</td>
+              <td width= 10%  class="text-center">Thn -</td>
+            </tr>
+
         @endif
 
         <tr>
           <td  colspan="3"><b>Keterampilan/Pengalaman Kerja</b></td>
         </tr>
+        @if (!empty($data_pelatihan))
+          @foreach ($data_pelatihan as $index => $dataItem)
+              <tr>
+                  <td> {{ $dataItem->nama_jenispelatihan}}</td>
+                  <td> {{ $dataItem->lembaga_pelatihan}}</td>
+                  <td class="text-center">Thn {{ $dataItem->tahun}}</td>
+              </tr>
+          @endforeach
+        @else
+          <tr>
+            <td>1. ---------</td>
+            <td>-</td>
+            <td class="text-center">Thn -</td>
+          </tr>
+          <tr>
+            <td>2. ---------</td>
+            <td>-</td>
+            <td class="text-center">Thn -</td>
+          </tr>
 
-        @foreach ($data_pelatihan as $index => $dataItem)
-            <tr>
-                <td> {{ $dataItem->nama_jenispelatihan}}</td>
-                <td> {{ $dataItem->lembaga_pelatihan}}</td>
-                <td class="text-center">Thn {{ $dataItem->tahun}}</td>
-            </tr>
-        @endforeach
+        @endif
 
+        @if (!empty($data_pekerjaan))
         @foreach ($data_pekerjaan as $index => $dataItem)
-        <tr>
-            <td> {{ $dataItem->jabatan}}</td>
-            <td> {{ $dataItem->nama_perusahaan}}</td>
-            <td class="text-center">Thn {{ $dataItem->tahun}}</td>
-        </tr>
-    @endforeach
+          <tr>
+              <td> {{ $dataItem->jabatan}}</td>
+              <td> {{ $dataItem->nama_perusahaan}}</td>
+              <td class="text-center">Thn {{ $dataItem->tahun}}</td>
+          </tr>
+        @endforeach
+        @endif
+
     </table>
   </body>
 </html>
