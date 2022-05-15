@@ -194,14 +194,13 @@
       </table>
     </div>
     @php
-   $nama = str_pad(strtoupper($data_pemohon->nama), 40);
-   $baris1  = substr($nama, 0, 20);
-   $baris2  = substr($nama, 20, 40);
-
-   $data_nama = str_split(($baris1));
-   $data_nama2 = str_split(($baris2));
-
-  @endphp
+      $panjang_nama = strlen($data_pemohon->nama);
+      $nama = str_pad(strtoupper($data_pemohon->nama), 40);
+      $baris1  = substr($nama, 0, 20);
+      $baris2  = substr($nama, 20, 40);
+      $data_nama = str_split(($baris1));
+      $data_nama2 = str_split(($baris2));
+    @endphp
     <div>
       <table class="container-header">
         <tr>
@@ -216,6 +215,7 @@
           </table></td>
         </tr>
       </table>
+      @if ($panjang_nama>20)
       <table class="container-header">
         <tr>
           <td width=32%> </td>
@@ -229,6 +229,8 @@
           </table></td>
         </tr>
       </table>
+      @endif
+
     </div>
     <div>
       <table class="container-header">
@@ -314,7 +316,6 @@
         </tr>
       </table>
     </div>
-
     <div>
       <table class="container-header">
         <tr>
@@ -331,7 +332,6 @@
         </tr>
       </table>
     </div>
-
     <table class="container-header">
         <tr>
           <td width= 80%  colspan="3"><b>Pendidikan Formal</b></td>
@@ -390,11 +390,11 @@
             $pt_lulus ='-';
           }
         @endphp
-          <tr>
-            <td width=32%>SD/Sederajat</td>
-            <td width=35%>{{$nama_sd }}</td>
-            <td width= 10%>Thn {{$sd_lulus }}</td>
-          </tr>
+        <tr>
+          <td width=32%>SD/Sederajat</td>
+          <td width=35%>{{$nama_sd }}</td>
+          <td width= 10%>Thn {{$sd_lulus }}</td>
+        </tr>
         <tr>
           <td width=32%>SLTP/Sederajat</td>
           <td width=35%>{{$nama_smp }}</td>
@@ -438,6 +438,6 @@
           <td></td>
           <td>Thn 2019</td>
         </tr>
-      </table>
+    </table>
   </body>
 </html>

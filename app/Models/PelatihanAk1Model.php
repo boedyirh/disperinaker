@@ -43,4 +43,19 @@ class PelatihanAk1Model extends Model
         }
 
     }
+    public function pdfData($rand_ak1)
+    {
+        if(DB::table('tbl_ak1_pelatihan')->where('rand_ak1',$rand_ak1)->where('NA',1)->get()->isNotEmpty())
+        {
+            return DB::table('tbl_ak1_pelatihan')
+            ->where('rand_ak1',$rand_ak1)
+            ->where('NA',1)
+            ->where('dipakai',1)
+            ->get();
+        }
+        else {
+            return NULL;
+        }
+
+    }
 }

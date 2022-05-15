@@ -54,12 +54,12 @@ class PDFController extends Controller
         $data =[
             'data_pemohon' =>$this->Ak1Model->detailData($rand_id),
             'data_pendidikan' =>$this->PendidikanAk1Model->pdfData($rand_id),
-            'data_pelatihan' =>$this->PelatihanAk1Model->allData($rand_id),
-            'data_pekerjaan' =>$this->PengalamankerjaAk1Model->allData($rand_id),
+            'data_pelatihan' =>$this->PelatihanAk1Model->pdfData($rand_id),
+            'data_pekerjaan' =>$this->PengalamankerjaAk1Model->pdfData($rand_id),
             'menu' =>$this->MenuModel->allData(),
             'layanan' =>$this->MenuModel->allLayananData(),
             'rekom' =>$this->MenuModel->allRekomData(),
-            'currentStep' =>1,
+
 
         ];
 
