@@ -95,7 +95,7 @@
                 <!-- /.box-footer -->
               </div>
 
-            @livewire('backend.show-status',['rand_ak1'=>$rand_ak1])
+            @livewire('backend.pejabat',['rand_ak1'=>$rand_ak1])
         </div>
         <div class="col-md-5">
             @livewire('backend.show-pendidikan',['rand_ak1'=>$rand_ak1])
