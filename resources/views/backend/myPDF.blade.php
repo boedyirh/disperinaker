@@ -362,7 +362,8 @@
     <table class="container-header">
         <tr>
           <td width= 80%  colspan="3"><b>Pendidikan Formal</b></td>
-          <td width= 23%  rowspan="9" style="text-align: center">   Pengantar Kerja/Petugas<br>Antar Kerja<br><br><br><br><br>  Agoestin F. SH., M.Si</td>
+          <td width= 23%  rowspan="9" style="text-align: center">   Pengantar Kerja/Petugas<br>Antar Kerja<br><br><br><br><br>  {{ $data_pemohon->penandatangan }}
+            <br>{{ $data_pemohon->nip_penandatangan }}</td>
         </tr>
           @php
             $data_sd = $data_pendidikan->firstWhere('tingkat_pendidikan',1);
