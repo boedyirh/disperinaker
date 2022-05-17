@@ -1,14 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 09, 2022 at 01:44 AM
--- Server version: 5.7.34
--- PHP Version: 7.4.21
+-- Host: localhost:8889
+-- Waktu pembuatan: 16 Bulan Mei 2022 pada 05.20
+-- Versi server: 5.7.34
+-- Versi PHP: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `db_disnaker`
@@ -17,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
+-- Struktur dari tabel `events`
 --
 
 CREATE TABLE `events` (
@@ -31,7 +38,7 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `events`
+-- Dumping data untuk tabel `events`
 --
 
 INSERT INTO `events` (`id`, `title`, `start`, `end`, `tahun`, `created_at`, `updated_at`) VALUES
@@ -40,7 +47,7 @@ INSERT INTO `events` (`id`, `title`, `start`, `end`, `tahun`, `created_at`, `upd
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Struktur dari tabel `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -56,7 +63,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -66,7 +73,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -80,7 +87,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Struktur dari tabel `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -92,7 +99,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Struktur dari tabel `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -110,7 +117,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sessions`
+-- Struktur dari tabel `sessions`
 --
 
 CREATE TABLE `sessions` (
@@ -123,18 +130,16 @@ CREATE TABLE `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sessions`
+-- Dumping data untuk tabel `sessions`
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('gcdlMLjyY6qCjFvuaogFvGSeTXUImjFag1eGQaf1', NULL, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Safari/605.1.15', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRTR4c3AyZmdZMEJQcHZtYUVsYmRsU0J3SU0wUkRBN1VCb09UbDZTaCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQ6Imh0dHA6Ly9kaXNwZXJpbmFrZXIudGVzdCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1652010550),
-('lsJ5E9uHaGxdriGNxkb1u9dYiMV9TUXpQS8kMqDc', 3, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100.0) Gecko/20100101 Firefox/100.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoid1NBVlI0cDJUTUxnVWNUYUhsemJFbklWWVI3bXllZWFvdjRpSXJnOSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjEwMjoiaHR0cDovL2Rpc3BlcmluYWtlci50ZXN0L2dlbmVyYXRlLXBkZi9Kc00yUW1PSlY3N1hZTUQ4RTRGV0g4cGFFVXN4alFxVEpDT1VFQjVsZFlSbVpLaGVpVjEyem5MQXlPR2NoOTRBIjt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MztzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJFdXWDEvSFBFaUI0NlpCSnFFVGNjM2U2cTNWTlBCY3IwZW5ja0ZsTTcyeTQ5alJwWllsVFU2Ijt9', 1652019098),
-('vg47l9IM0XLzTBq9PCcAV3fmzVf4hfxwyz3p7vyx', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100.0) Gecko/20100101 Firefox/100.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiM1E1dG9lSmtwZTd2SzFUeVRJSnRpWTB1MkRrdWR4YTdGcHBpb2FsdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTAyOiJodHRwOi8vZGlzcGVyaW5ha2VyLnRlc3QvZ2VuZXJhdGUtcGRmL0pzTTJRbU9KVjc3WFlNRDhFNEZXSDhwYUVVc3hqUXFUSkNPVUVCNWxkWVJtWktoZWlWMTJ6bkxBeU9HY2g5NEEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkV1dYMS9IUEVpQjQ2WkJKcUVUY2MzZTZxM1ZOUEJjcjBlbmNrRmxNNzJ5NDlqUnBaWWxUVTYiO30=', 1652010584);
+('axnJgK3z7qQzl7LcVAfUjmZc1y0WwdciqmQSo0Ec', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100.0) Gecko/20100101 Firefox/100.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVGJkTzV5VmF1QVBBdG1iamdKalBSV2lIajd5ZUdsT3drbHg5aGRQZyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9kaXNwZXJpbmFrZXIudGVzdC9hZG1pbi9kYWZ0YXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkV1dYMS9IUEVpQjQ2WkJKcUVUY2MzZTZxM1ZOUEJjcjBlbmNrRmxNNzJ5NDlqUnBaWWxUVTYiO30=', 1652667527);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ak1`
+-- Struktur dari tabel `tbl_ak1`
 --
 
 CREATE TABLE `tbl_ak1` (
@@ -157,12 +162,16 @@ CREATE TABLE `tbl_ak1` (
   `alamat` varchar(255) DEFAULT NULL,
   `nomer_hp` varchar(20) DEFAULT NULL,
   `email` varchar(150) DEFAULT NULL,
+  `server` varchar(100) DEFAULT NULL,
   `foto_ktp` varchar(255) DEFAULT NULL,
   `foto_diri` varchar(255) DEFAULT NULL,
   `tanggal_jadwal` date DEFAULT NULL,
   `jam_jadwal` varchar(100) DEFAULT NULL,
   `hari_jadwal` varchar(30) DEFAULT NULL,
   `completed` tinyint(1) NOT NULL DEFAULT '0',
+  `pejabat_id` int(2) DEFAULT NULL,
+  `penandatangan` varchar(200) DEFAULT NULL,
+  `nip_penandatangan` varchar(100) NOT NULL,
   `cek_cleaning` tinyint(1) NOT NULL DEFAULT '0',
   `tahapan` varchar(255) DEFAULT '0',
   `status_id` tinyint(1) DEFAULT '1',
@@ -178,17 +187,17 @@ CREATE TABLE `tbl_ak1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_ak1`
+-- Dumping data untuk tabel `tbl_ak1`
 --
 
-INSERT INTO `tbl_ak1` (`ak1_id`, `rand_ak1`, `nama`, `nik`, `tempat_lahir`, `tgl_lahir`, `jeniskelamin_id`, `nama_jeniskelamin`, `agama_id`, `nama_agama`, `kawin_id`, `nama_kawin`, `kecamatan_id`, `nama_kecamatan`, `keldesa_id`, `nama_keldesa`, `alamat`, `nomer_hp`, `email`, `foto_ktp`, `foto_diri`, `tanggal_jadwal`, `jam_jadwal`, `hari_jadwal`, `completed`, `cek_cleaning`, `tahapan`, `status_id`, `nama_status`, `keterangan`, `tahun`, `bulan`, `minggu_ke`, `tanggal`, `created_at`, `updated_at`, `NA`) VALUES
-(1, 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', 'Boedy Irhadtanto', '1234567890123456', 'Bojonegoro', '1973-07-12', '1', 'Laki-laki', '1', 'Islam', 1, 'Kawin', '15', 'Bojonegoro', '152002', 'Pacul', 'Jln. Panglima Polim 58C Bojonegoro', '123456789012345', 'boedyirh@yahoo.co.id', 'YetHVhZ6.png', 'UnXg8KUG.png', '2022-05-26', '08:00-11:30', 'Kamis', 1, 0, '0', 1, NULL, NULL, 2022, 5, 18, '2022-05-08', '2022-05-08 10:57:13', '2022-05-08 10:57:13', '1'),
-(2, 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Supriyadi Santoso', '1234558673789874', 'Mojokerto', '1974-11-15', '1', 'Laki-laki', '1', 'Islam', 1, 'Kawin', '15', 'Bojonegoro', '152002', 'Pacul', 'Jln. Panglima Polim 58C Bojonegoro', '0874368967938749', 'silviana@yahoo.com', 'VraOLSvS.png', 'qRceJwKU.png', '2022-05-12', '13:00-15:00', 'Kamis', 1, 0, '0', 1, NULL, NULL, 2022, 5, 18, '2022-05-08', '2022-05-08 11:46:42', '2022-05-08 11:46:42', '1');
+INSERT INTO `tbl_ak1` (`ak1_id`, `rand_ak1`, `nama`, `nik`, `tempat_lahir`, `tgl_lahir`, `jeniskelamin_id`, `nama_jeniskelamin`, `agama_id`, `nama_agama`, `kawin_id`, `nama_kawin`, `kecamatan_id`, `nama_kecamatan`, `keldesa_id`, `nama_keldesa`, `alamat`, `nomer_hp`, `email`, `server`, `foto_ktp`, `foto_diri`, `tanggal_jadwal`, `jam_jadwal`, `hari_jadwal`, `completed`, `pejabat_id`, `penandatangan`, `nip_penandatangan`, `cek_cleaning`, `tahapan`, `status_id`, `nama_status`, `keterangan`, `tahun`, `bulan`, `minggu_ke`, `tanggal`, `created_at`, `updated_at`, `NA`) VALUES
+(2, 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Supriyadi Santoso', '1234558673789874', 'Mojokerto', '1974-11-15', '1', 'Laki-laki', '1', 'Islam', 1, 'Kawin', '15', 'Bojonegoro', '152002', 'Pacul', 'Jln. Panglima Polim 58C Bojonegoro', '0874368967938749', 'silviana@yahoo.com', NULL, 'VraOLSvS.png', 'qRceJwKU.png', '2022-05-12', '13:00-15:00', 'Kamis', 1, 2, 'Agoestin F. SH., M.Si', '1234567890', 0, '0', 1, 'Pengajuan', NULL, 2022, 5, 18, '2022-05-08', '2022-05-08 11:46:42', '2022-05-08 11:46:42', '1'),
+(3, 'WCylT0r0lMBx67NI47dQGjG9SnhFNjmNlaK7jnCty7sXb4EcDMeuUBAdgZ21qCZs', 'Mariana Natalie', '1234567890123456', 'Surabaya', '2015-02-10', '1', 'Laki-laki', '2', 'Katolik', 2, 'Tidak Kawin', '20', 'Kasiman', '202007', 'Ngaglik', 'Jln. Kartini 28 Kasiman', '08121233455667', 'boedyirh@yahoo.co.id', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '', 0, '0', 2, 'Belum diambil', NULL, 2022, 5, 19, '2022-05-15', '2022-05-15 04:04:01', '2022-05-15 04:04:01', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ak1_foto`
+-- Struktur dari tabel `tbl_ak1_foto`
 --
 
 CREATE TABLE `tbl_ak1_foto` (
@@ -207,7 +216,7 @@ CREATE TABLE `tbl_ak1_foto` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ak1_pekerjaan`
+-- Struktur dari tabel `tbl_ak1_pekerjaan`
 --
 
 CREATE TABLE `tbl_ak1_pekerjaan` (
@@ -220,6 +229,7 @@ CREATE TABLE `tbl_ak1_pekerjaan` (
   `tahun` varchar(255) DEFAULT NULL,
   `awal_masuk` varchar(100) DEFAULT NULL,
   `sampai_tanggal` varchar(100) DEFAULT NULL,
+  `server` varchar(100) DEFAULT NULL,
   `file_pendukung` varchar(255) DEFAULT NULL,
   `file_asli` varchar(255) DEFAULT NULL,
   `is_saved` tinyint(1) NOT NULL DEFAULT '0',
@@ -229,19 +239,19 @@ CREATE TABLE `tbl_ak1_pekerjaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_ak1_pekerjaan`
+-- Dumping data untuk tabel `tbl_ak1_pekerjaan`
 --
 
-INSERT INTO `tbl_ak1_pekerjaan` (`ak1_pekerjaan_id`, `rand_ak1_pekerjaan`, `rand_ak1`, `bidang_usaha`, `nama_perusahaan`, `jabatan`, `tahun`, `awal_masuk`, `sampai_tanggal`, `file_pendukung`, `file_asli`, `is_saved`, `dipakai`, `cek_cleaning`, `NA`) VALUES
-(1, 'puBzIekio0XLf3J0HbFjt7o0BrqqUy3cTYcpmUn4sd6NGua8mNfEVshyyfs2o7KY', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', 'Tiket Kereta api', 'PT Gambir', 'Staff Marketing', '2021', NULL, NULL, '/private/var/folders/q5/q40k_0v15gz0mvn1__y9bznw0000gp/T/phpqGWwXQ', '2qMD1.png', 1, 0, 0, '1'),
-(2, 'Otr2inGHkxhq95l6J3veH9L7kQZ9SxsUcUaRaCnHv4PXvDEobLi8UUXfy0uRfduG', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', 'Makanan', 'UD Sambil Lalu', 'Staff Keuangan', '2010', NULL, NULL, '/private/var/folders/q5/q40k_0v15gz0mvn1__y9bznw0000gp/T/phpx7rJdc', '2qMD1.png', 1, 0, 0, '1'),
-(3, 'pQYl7IXp9R7am4kyagLvIug3BdbjzJKg03gfw8oedLVein7BmZFND4GgU8yTudIr', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Kontraktor', 'UPI', 'Staff Keuangan', '2012', NULL, NULL, '0WL7Qv0t.png', 'blank-img2.png', 1, 0, 0, '1'),
-(4, 'chNOrtSNKuCjaarhIxYXRQEgb8axLJ6htwTmslmsT5CxLEO0Rtg7UfmMl8bTbsgs', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Kontraktor', 'Smelting', 'Staff HRD', '2021', NULL, NULL, 'nzwFc1LT.png', 'Disperinaker.png', 1, 0, 0, '1');
+INSERT INTO `tbl_ak1_pekerjaan` (`ak1_pekerjaan_id`, `rand_ak1_pekerjaan`, `rand_ak1`, `bidang_usaha`, `nama_perusahaan`, `jabatan`, `tahun`, `awal_masuk`, `sampai_tanggal`, `server`, `file_pendukung`, `file_asli`, `is_saved`, `dipakai`, `cek_cleaning`, `NA`) VALUES
+(1, 'puBzIekio0XLf3J0HbFjt7o0BrqqUy3cTYcpmUn4sd6NGua8mNfEVshyyfs2o7KY', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', 'Tiket Kereta api', 'PT Gambir', 'Staff Marketing', '2021', NULL, NULL, NULL, '/private/var/folders/q5/q40k_0v15gz0mvn1__y9bznw0000gp/T/phpqGWwXQ', '2qMD1.png', 1, 0, 0, '1'),
+(2, 'Otr2inGHkxhq95l6J3veH9L7kQZ9SxsUcUaRaCnHv4PXvDEobLi8UUXfy0uRfduG', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', 'Makanan', 'UD Sambil Lalu', 'Staff Keuangan', '2010', NULL, NULL, NULL, '/private/var/folders/q5/q40k_0v15gz0mvn1__y9bznw0000gp/T/phpx7rJdc', '2qMD1.png', 1, 0, 0, '1'),
+(3, 'pQYl7IXp9R7am4kyagLvIug3BdbjzJKg03gfw8oedLVein7BmZFND4GgU8yTudIr', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Kontraktor', 'UPI', 'Staff Keuangan', '2012', NULL, NULL, NULL, '0WL7Qv0t.png', 'blank-img2.png', 1, 1, 0, '1'),
+(4, 'chNOrtSNKuCjaarhIxYXRQEgb8axLJ6htwTmslmsT5CxLEO0Rtg7UfmMl8bTbsgs', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Kontraktor', 'Smelting', 'Staff HRD', '2021', NULL, NULL, NULL, 'nzwFc1LT.png', 'Disperinaker.png', 1, 0, 0, '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ak1_pelatihan`
+-- Struktur dari tabel `tbl_ak1_pelatihan`
 --
 
 CREATE TABLE `tbl_ak1_pelatihan` (
@@ -253,6 +263,7 @@ CREATE TABLE `tbl_ak1_pelatihan` (
   `lembaga_pelatihan` varchar(255) DEFAULT NULL,
   `hasil` varchar(255) DEFAULT NULL,
   `tahun` varchar(10) DEFAULT NULL,
+  `server` varchar(100) DEFAULT NULL,
   `file_pendukung` varchar(255) DEFAULT NULL,
   `file_asli` varchar(255) DEFAULT NULL,
   `is_saved` tinyint(1) NOT NULL DEFAULT '0',
@@ -263,19 +274,19 @@ CREATE TABLE `tbl_ak1_pelatihan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_ak1_pelatihan`
+-- Dumping data untuk tabel `tbl_ak1_pelatihan`
 --
 
-INSERT INTO `tbl_ak1_pelatihan` (`ak1_pelatihan_id`, `rand_ak1_pelatihan`, `rand_ak1`, `jenis_pelatihan`, `nama_jenispelatihan`, `lembaga_pelatihan`, `hasil`, `tahun`, `file_pendukung`, `file_asli`, `is_saved`, `cek_cleaning`, `dipakai`, `status`, `NA`) VALUES
-(1, 'sT2osPfGRkBfICjuTNrIRLSEq6QB8sDojeLps4F76BMRKOEPm8Ke9c0rRZGv59Fw', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '1', 'Menjahit', 'PT Garuda', NULL, '2021', 'oaoaFZyO.png', '2qMD1.png', 1, 0, 0, NULL, '1'),
-(3, 'j1DL7nCCBw9Wer00EcMJ3Chck43qgSXIeaXhZoeahuP0ogsfFMtV9Fbr3ny2p2Ue', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '2', 'Mengelas', 'PT Las Super', NULL, '2019', 'NUWXKpd2.png', 'blank-img2.png', 1, 0, 0, NULL, '1'),
-(4, 'bbJp3MR4PCMLqSHndFhhEphIkbE0TPu4uFSoGfYVG9WEZkCNQaPc3Pbamkyzi4ij', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '1', 'Menjahit', 'UD Jahit', NULL, '2021', 'PTXq8koT.png', 'blank-img2.png', 1, 0, 0, NULL, '1'),
-(5, 'B3Gzb4bFmr3K2rPb9ptwXwD9zn3nseCit42NBQXu08Ka25xe0rmb6ezr1XsHkFhH', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '3', 'Public Speaking', 'CV Garuda', NULL, '2000', 'YUqFIx3O.png', 'arsipbpr filter.png', 1, 0, 0, NULL, '1');
+INSERT INTO `tbl_ak1_pelatihan` (`ak1_pelatihan_id`, `rand_ak1_pelatihan`, `rand_ak1`, `jenis_pelatihan`, `nama_jenispelatihan`, `lembaga_pelatihan`, `hasil`, `tahun`, `server`, `file_pendukung`, `file_asli`, `is_saved`, `cek_cleaning`, `dipakai`, `status`, `NA`) VALUES
+(1, 'sT2osPfGRkBfICjuTNrIRLSEq6QB8sDojeLps4F76BMRKOEPm8Ke9c0rRZGv59Fw', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '1', 'Menjahit', 'PT Garuda', NULL, '2021', NULL, 'oaoaFZyO.png', '2qMD1.png', 1, 0, 0, NULL, '1'),
+(3, 'j1DL7nCCBw9Wer00EcMJ3Chck43qgSXIeaXhZoeahuP0ogsfFMtV9Fbr3ny2p2Ue', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '2', 'Mengelas', 'PT Las Super', NULL, '2019', NULL, 'NUWXKpd2.png', 'blank-img2.png', 1, 0, 0, NULL, '1'),
+(4, 'bbJp3MR4PCMLqSHndFhhEphIkbE0TPu4uFSoGfYVG9WEZkCNQaPc3Pbamkyzi4ij', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '2', 'Mengelas', 'UD Jahit', NULL, '2021', NULL, 'PTXq8koT.png', 'blank-img2.png', 1, 0, 0, NULL, '1'),
+(5, 'B3Gzb4bFmr3K2rPb9ptwXwD9zn3nseCit42NBQXu08Ka25xe0rmb6ezr1XsHkFhH', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '3', 'Public Speaking', 'CV Garuda', NULL, '2000', NULL, 'YUqFIx3O.png', 'arsipbpr filter.png', 1, 0, 0, NULL, '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ak1_pendidikan`
+-- Struktur dari tabel `tbl_ak1_pendidikan`
 --
 
 CREATE TABLE `tbl_ak1_pendidikan` (
@@ -287,6 +298,7 @@ CREATE TABLE `tbl_ak1_pendidikan` (
   `nama_institusi` varchar(80) DEFAULT NULL,
   `jurusan` varchar(80) DEFAULT NULL,
   `tahun_lulus` varchar(40) DEFAULT NULL,
+  `server` varchar(100) NOT NULL,
   `file_pendukung` varchar(255) DEFAULT NULL,
   `file_asli` varchar(255) DEFAULT NULL,
   `cek_cleaning` tinyint(1) NOT NULL DEFAULT '0',
@@ -297,20 +309,21 @@ CREATE TABLE `tbl_ak1_pendidikan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_ak1_pendidikan`
+-- Dumping data untuk tabel `tbl_ak1_pendidikan`
 --
 
-INSERT INTO `tbl_ak1_pendidikan` (`ak1_pendidikan_id`, `rand_ak1_pendidikan`, `rand_ak1`, `tingkat_pendidikan`, `nama_tingkatpendidikan`, `nama_institusi`, `jurusan`, `tahun_lulus`, `file_pendukung`, `file_asli`, `cek_cleaning`, `status`, `dipakai`, `is_saved`, `NA`) VALUES
-(1, 'AsY4cQoagWOtoye87IESDrzyc8s85B8wqltXhkXiYegmbSlFj5EeGVJGQT11K8FF', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '9', 'Sarjana S1', 'Universitas Brawijaya', 'Teknik Elektro', '1997', 'eeMo7plw.png', 'food.png', 0, '1', 0, 1, '1'),
-(2, 'QzQzaMaa7b8WtO43CHzFLzGzbEuekggoUM2wKQoKn5TceZW8ivrO9VuCJa4PnfsC', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '10', 'Magister S2', 'Universitas PGRI Adibuana', 'Managemen Pendidikan', '2013', '5X5fU8BQ.png', '5-dots.png', 0, '1', 0, 1, '1'),
-(3, '9053nYHrmmMxDX2Hdxe4utY96IB3IkiMxwq6weGHy2tCILAVyO1py0GblSQvw0Ug', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '3', 'SLTA', 'SMAN 3 Malang', 'IPA', '1991', 'fRQRw2HN.png', '2qMD1.png', 0, '1', 0, 1, '1'),
-(4, '3rJnp0uo3ORNeoQkFn59KHe0OWdQuS11tlFakUb0sCxjbu889m1uwYNNiRYNS2yv', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '3', 'SLTA', 'SMAN 2 Jombang', 'IPS', '2012', 'IQDD3GmJ.jpg', 'demo politik.jpg', 0, '1', 0, 1, '1'),
-(5, 'RQKI8dllgYFzt9dyeuAsTDkmjef90frSyimxGaWp3YHJy00MWtBoJqVUre91vpXc', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '9', 'Sarjana S1', 'Universitas Brawijaya', 'FIA', '1997', 'hs1oioc0.jpg', 'demo politik.jpg', 0, '1', 0, 1, '1');
+INSERT INTO `tbl_ak1_pendidikan` (`ak1_pendidikan_id`, `rand_ak1_pendidikan`, `rand_ak1`, `tingkat_pendidikan`, `nama_tingkatpendidikan`, `nama_institusi`, `jurusan`, `tahun_lulus`, `server`, `file_pendukung`, `file_asli`, `cek_cleaning`, `status`, `dipakai`, `is_saved`, `NA`) VALUES
+(1, 'AsY4cQoagWOtoye87IESDrzyc8s85B8wqltXhkXiYegmbSlFj5EeGVJGQT11K8FF', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '9', 'Sarjana S1', 'Universitas Brawijaya', 'Teknik Elektro', '1997', '', 'eeMo7plw.png', 'food.png', 0, '1', 0, 1, '1'),
+(2, 'QzQzaMaa7b8WtO43CHzFLzGzbEuekggoUM2wKQoKn5TceZW8ivrO9VuCJa4PnfsC', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '10', 'Magister S2', 'Universitas PGRI Adibuana', 'Managemen Pendidikan', '2013', '', '5X5fU8BQ.png', '5-dots.png', 0, '1', 0, 1, '1'),
+(3, '9053nYHrmmMxDX2Hdxe4utY96IB3IkiMxwq6weGHy2tCILAVyO1py0GblSQvw0Ug', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '3', 'SLTA', 'SMAN 3 Malang', 'IPA', '1991', '', 'fRQRw2HN.png', '2qMD1.png', 0, '1', 0, 1, '1'),
+(4, '3rJnp0uo3ORNeoQkFn59KHe0OWdQuS11tlFakUb0sCxjbu889m1uwYNNiRYNS2yv', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '5', 'Akta1-Akta4', 'SMP Negeri 1 Bojonegoro', 'IPS', '2012', '', 'IQDD3GmJ.jpg', 'demo politik.jpg', 0, '1', 1, 1, '1'),
+(5, 'RQKI8dllgYFzt9dyeuAsTDkmjef90frSyimxGaWp3YHJy00MWtBoJqVUre91vpXc', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '6', 'S1/S2/S3', 'Universitas Brawijaya', 'FIA', '1997', '', 'hs1oioc0.jpg', 'demo politik.jpg', 0, '1', 1, 1, '1'),
+(7, 'zCOy6LeKVjOGCSg9zgofSY64OXV2wj1l7NbQ54vv7HRYvx8QRagMzlHGze0Y1oSF', 'WCylT0r0lMBx67NI47dQGjG9SnhFNjmNlaK7jnCty7sXb4EcDMeuUBAdgZ21qCZs', '3', 'SLTA/SMK', 'fdfdsf', 'fdfs', 'fdfd', '', 'SGzzI95u.png', 'arsipbpr filter.png', 0, '1', 0, 1, '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_aplikasi`
+-- Struktur dari tabel `tbl_aplikasi`
 --
 
 CREATE TABLE `tbl_aplikasi` (
@@ -327,7 +340,7 @@ CREATE TABLE `tbl_aplikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_aplikasi`
+-- Dumping data untuk tabel `tbl_aplikasi`
 --
 
 INSERT INTO `tbl_aplikasi` (`id`, `aplikasi_id`, `nama`, `nama_panjang`, `instansi`, `bidang`, `kota`, `alamat`, `logo`, `versi`) VALUES
@@ -336,7 +349,32 @@ INSERT INTO `tbl_aplikasi` (`id`, `aplikasi_id`, `nama`, `nama_panjang`, `instan
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_dropdown`
+-- Struktur dari tabel `tbl_cetak`
+--
+
+CREATE TABLE `tbl_cetak` (
+  `id` int(11) NOT NULL,
+  `rand_ak1` varchar(80) DEFAULT NULL,
+  `nama` varchar(200) DEFAULT NULL,
+  `kecamatan` varchar(50) NOT NULL,
+  `keldesa` varchar(50) NOT NULL,
+  `tgl_ambil` date DEFAULT NULL,
+  `nomer_urut` int(11) NOT NULL,
+  `tahun` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_cetak`
+--
+
+INSERT INTO `tbl_cetak` (`id`, `rand_ak1`, `nama`, `kecamatan`, `keldesa`, `tgl_ambil`, `nomer_urut`, `tahun`) VALUES
+(30, 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Supriyadi Santoso', 'Bojonegoro', 'Pacul', '2022-05-15', 1, 2022),
+(32, 'WCylT0r0lMBx67NI47dQGjG9SnhFNjmNlaK7jnCty7sXb4EcDMeuUBAdgZ21qCZs', 'Mariana Natalie', 'Kasiman', 'Ngaglik', '2022-05-15', 2, 2022);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_dropdown`
 --
 
 CREATE TABLE `tbl_dropdown` (
@@ -352,22 +390,16 @@ CREATE TABLE `tbl_dropdown` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_dropdown`
+-- Dumping data untuk tabel `tbl_dropdown`
 --
 
 INSERT INTO `tbl_dropdown` (`id`, `dropdown_type`, `value_dropdown`, `label_dropdown`, `urutan`, `kelompok`, `kode_konsolidasi`, `keterangan`, `NA`) VALUES
 (1, 'tingkat_pendidikan', '1', 'SD', 1, NULL, NULL, '1', '1'),
-(2, 'tingkat_pendidikan', '2', 'SLTP', 1, NULL, NULL, '1', '1'),
-(3, 'tingkat_pendidikan', '3', 'SLTA', 1, NULL, NULL, '1', '1'),
-(4, 'tingkat_pendidikan', '4', 'SMK', 1, NULL, NULL, '1', '1'),
-(5, 'tingkat_pendidikan', '5', 'Diploma 1', 1, NULL, NULL, '1', '1'),
-(6, 'tingkat_pendidikan', '6', 'Diploma 2', 1, NULL, NULL, '1', '1'),
-(7, 'tingkat_pendidikan', '7', 'Diploma 3', 1, NULL, NULL, '1', '1'),
-(8, 'tingkat_pendidikan', '8', 'Diploma 4', 1, NULL, NULL, '1', '1'),
-(9, 'tingkat_pendidikan', '9', 'Sarjana S1', 1, NULL, NULL, '1', '1'),
-(10, 'tingkat_pendidikan', '10', 'Magister S2', 1, NULL, NULL, '1', '1'),
-(11, 'tingkat_pendidikan', '11', 'Doktoral S3', 1, NULL, NULL, '1', '1'),
-(12, 'tingkat_pendidikan', '12', 'Spesialis Sp', 1, NULL, NULL, '1', '1'),
+(2, 'tingkat_pendidikan', '2', 'SLTP', 2, NULL, NULL, '1', '1'),
+(3, 'tingkat_pendidikan', '3', 'SLTA/SMK', 3, NULL, NULL, '1', '1'),
+(5, 'tingkat_pendidikan', '4', 'D1,D2,D3,D4', 4, NULL, NULL, '1', '1'),
+(9, 'tingkat_pendidikan', '5', 'Akta1-Akta4', 5, NULL, NULL, '1', '1'),
+(10, 'tingkat_pendidikan', '6', 'S1/S2/S3', 6, NULL, NULL, '1', '1'),
 (13, 'jenis_kelamin', '1', 'Laki-laki', 1, NULL, NULL, '1', '1'),
 (14, 'jenis_kelamin', '2', 'Perempuan', 2, NULL, NULL, '1', '1'),
 (15, 'agama', '1', 'Islam', 1, NULL, NULL, '1', '1'),
@@ -393,7 +425,7 @@ INSERT INTO `tbl_dropdown` (`id`, `dropdown_type`, `value_dropdown`, `label_drop
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kecamatan`
+-- Struktur dari tabel `tbl_kecamatan`
 --
 
 CREATE TABLE `tbl_kecamatan` (
@@ -407,7 +439,7 @@ CREATE TABLE `tbl_kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_kecamatan`
+-- Dumping data untuk tabel `tbl_kecamatan`
 --
 
 INSERT INTO `tbl_kecamatan` (`kecamatan_id`, `kode_mapping`, `kode_propinsi_bps`, `kode_kab_bps`, `nama_kecamatan`, `keterangan`, `status`) VALUES
@@ -443,7 +475,7 @@ INSERT INTO `tbl_kecamatan` (`kecamatan_id`, `kode_mapping`, `kode_propinsi_bps`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_keldesa`
+-- Struktur dari tabel `tbl_keldesa`
 --
 
 CREATE TABLE `tbl_keldesa` (
@@ -458,7 +490,7 @@ CREATE TABLE `tbl_keldesa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_keldesa`
+-- Dumping data untuk tabel `tbl_keldesa`
 --
 
 INSERT INTO `tbl_keldesa` (`id_keldesa_gabungan`, `id_keldesa`, `kecamatan_id`, `kode_mapping`, `nama_keldesa`, `nama_kecamatan`, `keterangan`, `status`) VALUES
@@ -896,7 +928,7 @@ INSERT INTO `tbl_keldesa` (`id_keldesa_gabungan`, `id_keldesa`, `kecamatan_id`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_menu`
+-- Struktur dari tabel `tbl_menu`
 --
 
 CREATE TABLE `tbl_menu` (
@@ -915,7 +947,7 @@ CREATE TABLE `tbl_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_menu`
+-- Dumping data untuk tabel `tbl_menu`
 --
 
 INSERT INTO `tbl_menu` (`id`, `parent_id`, `level`, `jenis`, `seksi_id`, `title`, `url`, `urutan`, `icon`, `created_at`, `update_at`, `NA`) VALUES
@@ -1011,7 +1043,30 @@ INSERT INTO `tbl_menu` (`id`, `parent_id`, `level`, `jenis`, `seksi_id`, `title`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_periode`
+-- Struktur dari tabel `tbl_pejabat`
+--
+
+CREATE TABLE `tbl_pejabat` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(200) DEFAULT NULL,
+  `nip` varchar(100) DEFAULT NULL,
+  `jabatan` varchar(200) DEFAULT NULL,
+  `urutan` int(2) DEFAULT NULL,
+  `status` int(2) DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_pejabat`
+--
+
+INSERT INTO `tbl_pejabat` (`id`, `nama`, `nip`, `jabatan`, `urutan`, `status`) VALUES
+(1, 'Joko Santoso, SH. MH.', '19631114 199103 1 006', 'Pembina', 1, 1),
+(2, 'Agoestin F. SH., M.Si', '1234567890', NULL, 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_periode`
 --
 
 CREATE TABLE `tbl_periode` (
@@ -1025,7 +1080,7 @@ CREATE TABLE `tbl_periode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_periode`
+-- Dumping data untuk tabel `tbl_periode`
 --
 
 INSERT INTO `tbl_periode` (`periode_id`, `rand_periode`, `nama`, `tahun`, `keterangan`, `status`, `NA`) VALUES
@@ -1040,7 +1095,7 @@ INSERT INTO `tbl_periode` (`periode_id`, `rand_periode`, `nama`, `tahun`, `keter
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_seksi`
+-- Struktur dari tabel `tbl_seksi`
 --
 
 CREATE TABLE `tbl_seksi` (
@@ -1053,7 +1108,7 @@ CREATE TABLE `tbl_seksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_seksi`
+-- Dumping data untuk tabel `tbl_seksi`
 --
 
 INSERT INTO `tbl_seksi` (`seksi_id`, `nama`, `bidang_id`, `rand_seksi`, `keterangan`, `NA`) VALUES
@@ -1064,7 +1119,7 @@ INSERT INTO `tbl_seksi` (`seksi_id`, `nama`, `bidang_id`, `rand_seksi`, `keteran
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_slot`
+-- Struktur dari tabel `tbl_slot`
 --
 
 CREATE TABLE `tbl_slot` (
@@ -1077,7 +1132,7 @@ CREATE TABLE `tbl_slot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_slot`
+-- Dumping data untuk tabel `tbl_slot`
 --
 
 INSERT INTO `tbl_slot` (`slot_id`, `kategori`, `waktu`, `urutan`, `istirahat_khusus`, `NA`) VALUES
@@ -1088,7 +1143,7 @@ INSERT INTO `tbl_slot` (`slot_id`, `kategori`, `waktu`, `urutan`, `istirahat_khu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_slot2`
+-- Struktur dari tabel `tbl_slot2`
 --
 
 CREATE TABLE `tbl_slot2` (
@@ -1101,7 +1156,7 @@ CREATE TABLE `tbl_slot2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_slot2`
+-- Dumping data untuk tabel `tbl_slot2`
 --
 
 INSERT INTO `tbl_slot2` (`slot_id`, `kategori`, `waktu`, `urutan`, `istirahat_khusus`, `NA`) VALUES
@@ -1146,7 +1201,7 @@ INSERT INTO `tbl_slot2` (`slot_id`, `kategori`, `waktu`, `urutan`, `istirahat_kh
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_slot_wawancara`
+-- Struktur dari tabel `tbl_slot_wawancara`
 --
 
 CREATE TABLE `tbl_slot_wawancara` (
@@ -1169,7 +1224,7 @@ CREATE TABLE `tbl_slot_wawancara` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_slot_wawancara`
+-- Dumping data untuk tabel `tbl_slot_wawancara`
 --
 
 INSERT INTO `tbl_slot_wawancara` (`slot_wawancara_id`, `kategori`, `tahun`, `bulan`, `tanggal`, `hari`, `minggu_ke`, `urutan`, `waktu`, `hari_libur`, `libur_layanan`, `sudah_lewat`, `sudah_dipesan`, `rand_slot_wwc`, `updated_at`, `created_at`) VALUES
@@ -2743,7 +2798,7 @@ INSERT INTO `tbl_slot_wawancara` (`slot_wawancara_id`, `kategori`, `tahun`, `bul
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_wawancara`
+-- Struktur dari tabel `tbl_wawancara`
 --
 
 CREATE TABLE `tbl_wawancara` (
@@ -2759,7 +2814,7 @@ CREATE TABLE `tbl_wawancara` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_wawancara`
+-- Dumping data untuk tabel `tbl_wawancara`
 --
 
 INSERT INTO `tbl_wawancara` (`wawancara_id`, `rand_wawancara`, `periode`, `kategori`, `jumlah_slot`, `jumlah_hari`, `updated_at`, `created_at`, `NA`) VALUES
@@ -2769,7 +2824,7 @@ INSERT INTO `tbl_wawancara` (`wawancara_id`, `rand_wawancara`, `periode`, `kateg
 -- --------------------------------------------------------
 
 --
--- Table structure for table `time_dimension`
+-- Struktur dari tabel `time_dimension`
 --
 
 CREATE TABLE `time_dimension` (
@@ -2787,7 +2842,7 @@ CREATE TABLE `time_dimension` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `time_dimension`
+-- Dumping data untuk tabel `time_dimension`
 --
 
 INSERT INTO `time_dimension` (`id`, `db_date`, `year`, `month`, `day`, `quarter`, `minggu_ke`, `nama_hari`, `nama_bulan`, `harilibur_flag`, `weekend_flag`) VALUES
@@ -9014,7 +9069,7 @@ INSERT INTO `time_dimension` (`id`, `db_date`, `year`, `month`, `day`, `quarter`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmp_ak1`
+-- Struktur dari tabel `tmp_ak1`
 --
 
 CREATE TABLE `tmp_ak1` (
@@ -9056,7 +9111,7 @@ CREATE TABLE `tmp_ak1` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmp_ak1_foto`
+-- Struktur dari tabel `tmp_ak1_foto`
 --
 
 CREATE TABLE `tmp_ak1_foto` (
@@ -9075,7 +9130,7 @@ CREATE TABLE `tmp_ak1_foto` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmp_ak1_pekerjaan`
+-- Struktur dari tabel `tmp_ak1_pekerjaan`
 --
 
 CREATE TABLE `tmp_ak1_pekerjaan` (
@@ -9099,7 +9154,7 @@ CREATE TABLE `tmp_ak1_pekerjaan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmp_ak1_pelatihan`
+-- Struktur dari tabel `tmp_ak1_pelatihan`
 --
 
 CREATE TABLE `tmp_ak1_pelatihan` (
@@ -9123,7 +9178,7 @@ CREATE TABLE `tmp_ak1_pelatihan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmp_ak1_pendidikan`
+-- Struktur dari tabel `tmp_ak1_pendidikan`
 --
 
 CREATE TABLE `tmp_ak1_pendidikan` (
@@ -9147,7 +9202,7 @@ CREATE TABLE `tmp_ak1_pendidikan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -9171,7 +9226,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `rand_user`, `name`, `level`, `seksi_id`, `periode_aktif`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`, `NA`) VALUES
@@ -9184,32 +9239,32 @@ INSERT INTO `users` (`id`, `rand_user`, `name`, `level`, `seksi_id`, `periode_ak
 --
 
 --
--- Indexes for table `events`
+-- Indeks untuk tabel `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Indeks untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Indeks untuk tabel `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `personal_access_tokens`
+-- Indeks untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -9217,7 +9272,7 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `sessions`
+-- Indeks untuk tabel `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`),
@@ -9225,7 +9280,7 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
--- Indexes for table `tbl_ak1`
+-- Indeks untuk tabel `tbl_ak1`
 --
 ALTER TABLE `tbl_ak1`
   ADD PRIMARY KEY (`ak1_id`),
@@ -9237,13 +9292,13 @@ ALTER TABLE `tbl_ak1`
   ADD KEY `nik` (`nik`);
 
 --
--- Indexes for table `tbl_ak1_foto`
+-- Indeks untuk tabel `tbl_ak1_foto`
 --
 ALTER TABLE `tbl_ak1_foto`
   ADD PRIMARY KEY (`ak1_berkas_id`);
 
 --
--- Indexes for table `tbl_ak1_pekerjaan`
+-- Indeks untuk tabel `tbl_ak1_pekerjaan`
 --
 ALTER TABLE `tbl_ak1_pekerjaan`
   ADD PRIMARY KEY (`ak1_pekerjaan_id`),
@@ -9252,27 +9307,37 @@ ALTER TABLE `tbl_ak1_pekerjaan`
   ADD KEY `rand_ak1_pekerjaan` (`rand_ak1_pekerjaan`);
 
 --
--- Indexes for table `tbl_ak1_pelatihan`
+-- Indeks untuk tabel `tbl_ak1_pelatihan`
 --
 ALTER TABLE `tbl_ak1_pelatihan`
   ADD PRIMARY KEY (`ak1_pelatihan_id`),
   ADD KEY `rand_ak1` (`rand_ak1`);
 
 --
--- Indexes for table `tbl_ak1_pendidikan`
+-- Indeks untuk tabel `tbl_ak1_pendidikan`
 --
 ALTER TABLE `tbl_ak1_pendidikan`
   ADD PRIMARY KEY (`ak1_pendidikan_id`),
   ADD KEY `rand_ak1` (`rand_ak1`);
 
 --
--- Indexes for table `tbl_aplikasi`
+-- Indeks untuk tabel `tbl_aplikasi`
 --
 ALTER TABLE `tbl_aplikasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_dropdown`
+-- Indeks untuk tabel `tbl_cetak`
+--
+ALTER TABLE `tbl_cetak`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tahun` (`tahun`),
+  ADD KEY `nomer_urut` (`nomer_urut`),
+  ADD KEY `nama` (`nama`),
+  ADD KEY `rand_ak1` (`rand_ak1`);
+
+--
+-- Indeks untuk tabel `tbl_dropdown`
 --
 ALTER TABLE `tbl_dropdown`
   ADD PRIMARY KEY (`id`),
@@ -9281,13 +9346,13 @@ ALTER TABLE `tbl_dropdown`
   ADD KEY `kelompok` (`kelompok`);
 
 --
--- Indexes for table `tbl_kecamatan`
+-- Indeks untuk tabel `tbl_kecamatan`
 --
 ALTER TABLE `tbl_kecamatan`
   ADD PRIMARY KEY (`kecamatan_id`) USING BTREE;
 
 --
--- Indexes for table `tbl_keldesa`
+-- Indeks untuk tabel `tbl_keldesa`
 --
 ALTER TABLE `tbl_keldesa`
   ADD PRIMARY KEY (`id_keldesa_gabungan`),
@@ -9297,25 +9362,31 @@ ALTER TABLE `tbl_keldesa`
   ADD KEY `status` (`status`);
 
 --
--- Indexes for table `tbl_menu`
+-- Indeks untuk tabel `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_periode`
+-- Indeks untuk tabel `tbl_pejabat`
+--
+ALTER TABLE `tbl_pejabat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `tbl_periode`
 --
 ALTER TABLE `tbl_periode`
   ADD PRIMARY KEY (`periode_id`);
 
 --
--- Indexes for table `tbl_seksi`
+-- Indeks untuk tabel `tbl_seksi`
 --
 ALTER TABLE `tbl_seksi`
   ADD PRIMARY KEY (`seksi_id`);
 
 --
--- Indexes for table `tbl_slot`
+-- Indeks untuk tabel `tbl_slot`
 --
 ALTER TABLE `tbl_slot`
   ADD PRIMARY KEY (`slot_id`),
@@ -9323,7 +9394,7 @@ ALTER TABLE `tbl_slot`
   ADD KEY `kategori` (`kategori`);
 
 --
--- Indexes for table `tbl_slot2`
+-- Indeks untuk tabel `tbl_slot2`
 --
 ALTER TABLE `tbl_slot2`
   ADD PRIMARY KEY (`slot_id`),
@@ -9331,7 +9402,7 @@ ALTER TABLE `tbl_slot2`
   ADD KEY `kategori` (`kategori`);
 
 --
--- Indexes for table `tbl_slot_wawancara`
+-- Indeks untuk tabel `tbl_slot_wawancara`
 --
 ALTER TABLE `tbl_slot_wawancara`
   ADD PRIMARY KEY (`slot_wawancara_id`),
@@ -9341,13 +9412,13 @@ ALTER TABLE `tbl_slot_wawancara`
   ADD KEY `urutan` (`urutan`);
 
 --
--- Indexes for table `tbl_wawancara`
+-- Indeks untuk tabel `tbl_wawancara`
 --
 ALTER TABLE `tbl_wawancara`
   ADD PRIMARY KEY (`wawancara_id`);
 
 --
--- Indexes for table `time_dimension`
+-- Indeks untuk tabel `time_dimension`
 --
 ALTER TABLE `time_dimension`
   ADD PRIMARY KEY (`id`),
@@ -9358,7 +9429,7 @@ ALTER TABLE `time_dimension`
   ADD KEY `weekend_flag` (`weekend_flag`);
 
 --
--- Indexes for table `tmp_ak1`
+-- Indeks untuk tabel `tmp_ak1`
 --
 ALTER TABLE `tmp_ak1`
   ADD PRIMARY KEY (`ak1_id`),
@@ -9369,13 +9440,13 @@ ALTER TABLE `tmp_ak1`
   ADD KEY `status_tahapan` (`status_tahapan`,`NA`);
 
 --
--- Indexes for table `tmp_ak1_foto`
+-- Indeks untuk tabel `tmp_ak1_foto`
 --
 ALTER TABLE `tmp_ak1_foto`
   ADD PRIMARY KEY (`ak1_berkas_id`);
 
 --
--- Indexes for table `tmp_ak1_pekerjaan`
+-- Indeks untuk tabel `tmp_ak1_pekerjaan`
 --
 ALTER TABLE `tmp_ak1_pekerjaan`
   ADD PRIMARY KEY (`ak1_pekerjaan_id`),
@@ -9384,168 +9455,185 @@ ALTER TABLE `tmp_ak1_pekerjaan`
   ADD KEY `rand_ak1_pekerjaan` (`rand_ak1_pekerjaan`);
 
 --
--- Indexes for table `tmp_ak1_pelatihan`
+-- Indeks untuk tabel `tmp_ak1_pelatihan`
 --
 ALTER TABLE `tmp_ak1_pelatihan`
   ADD PRIMARY KEY (`ak1_pelatihan_id`);
 
 --
--- Indexes for table `tmp_ak1_pendidikan`
+-- Indeks untuk tabel `tmp_ak1_pendidikan`
 --
 ALTER TABLE `tmp_ak1_pendidikan`
   ADD PRIMARY KEY (`ak1_pendidikan_id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `events`
+-- AUTO_INCREMENT untuk tabel `events`
 --
 ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_ak1`
+-- AUTO_INCREMENT untuk tabel `tbl_ak1`
 --
 ALTER TABLE `tbl_ak1`
-  MODIFY `ak1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ak1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_ak1_foto`
+-- AUTO_INCREMENT untuk tabel `tbl_ak1_foto`
 --
 ALTER TABLE `tbl_ak1_foto`
   MODIFY `ak1_berkas_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_ak1_pekerjaan`
+-- AUTO_INCREMENT untuk tabel `tbl_ak1_pekerjaan`
 --
 ALTER TABLE `tbl_ak1_pekerjaan`
   MODIFY `ak1_pekerjaan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_ak1_pelatihan`
+-- AUTO_INCREMENT untuk tabel `tbl_ak1_pelatihan`
 --
 ALTER TABLE `tbl_ak1_pelatihan`
   MODIFY `ak1_pelatihan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_ak1_pendidikan`
+-- AUTO_INCREMENT untuk tabel `tbl_ak1_pendidikan`
 --
 ALTER TABLE `tbl_ak1_pendidikan`
-  MODIFY `ak1_pendidikan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ak1_pendidikan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tbl_aplikasi`
+-- AUTO_INCREMENT untuk tabel `tbl_aplikasi`
 --
 ALTER TABLE `tbl_aplikasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_dropdown`
+-- AUTO_INCREMENT untuk tabel `tbl_cetak`
+--
+ALTER TABLE `tbl_cetak`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_dropdown`
 --
 ALTER TABLE `tbl_dropdown`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT for table `tbl_menu`
+-- AUTO_INCREMENT untuk tabel `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=514;
 
 --
--- AUTO_INCREMENT for table `tbl_periode`
+-- AUTO_INCREMENT untuk tabel `tbl_pejabat`
+--
+ALTER TABLE `tbl_pejabat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_periode`
 --
 ALTER TABLE `tbl_periode`
   MODIFY `periode_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tbl_seksi`
+-- AUTO_INCREMENT untuk tabel `tbl_seksi`
 --
 ALTER TABLE `tbl_seksi`
   MODIFY `seksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_slot`
+-- AUTO_INCREMENT untuk tabel `tbl_slot`
 --
 ALTER TABLE `tbl_slot`
   MODIFY `slot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_slot2`
+-- AUTO_INCREMENT untuk tabel `tbl_slot2`
 --
 ALTER TABLE `tbl_slot2`
   MODIFY `slot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `tbl_slot_wawancara`
+-- AUTO_INCREMENT untuk tabel `tbl_slot_wawancara`
 --
 ALTER TABLE `tbl_slot_wawancara`
   MODIFY `slot_wawancara_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1561;
 
 --
--- AUTO_INCREMENT for table `tbl_wawancara`
+-- AUTO_INCREMENT untuk tabel `tbl_wawancara`
 --
 ALTER TABLE `tbl_wawancara`
   MODIFY `wawancara_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tmp_ak1`
+-- AUTO_INCREMENT untuk tabel `tmp_ak1`
 --
 ALTER TABLE `tmp_ak1`
   MODIFY `ak1_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tmp_ak1_foto`
+-- AUTO_INCREMENT untuk tabel `tmp_ak1_foto`
 --
 ALTER TABLE `tmp_ak1_foto`
   MODIFY `ak1_berkas_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tmp_ak1_pekerjaan`
+-- AUTO_INCREMENT untuk tabel `tmp_ak1_pekerjaan`
 --
 ALTER TABLE `tmp_ak1_pekerjaan`
   MODIFY `ak1_pekerjaan_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tmp_ak1_pelatihan`
+-- AUTO_INCREMENT untuk tabel `tmp_ak1_pelatihan`
 --
 ALTER TABLE `tmp_ak1_pelatihan`
   MODIFY `ak1_pelatihan_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tmp_ak1_pendidikan`
+-- AUTO_INCREMENT untuk tabel `tmp_ak1_pendidikan`
 --
 ALTER TABLE `tmp_ak1_pendidikan`
   MODIFY `ak1_pendidikan_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
