@@ -81,26 +81,36 @@
         <tr>
           <td     width=32%>Nomer Pendaftaran Pencari Kerja</td>
           <td    width=68%>
+            @php
+              //$tgl_ini = $tgl_ambil;
+              //$nomer_hari = date("d-m-Y");
+              $split_nomer_hari = str_split(($tgl_ambil));
+
+              $nomer_urut = $last_agenda;
+              $nomer_urut_lz= str_pad($nomer_urut,6,"0",STR_PAD_LEFT);
+              $split_nomer_urut = str_split(($nomer_urut_lz));
+            @endphp
             <table class="container-inside">
               <tr>
-                <td class="borderall" width=5% style="text-align: center">1</td>
+                <td class="borderall" width=5% style="text-align: center">3</td>
+                <td  class="borderall" width=5% style="text-align: center">5</td>
                 <td  class="borderall" width=5% style="text-align: center">2</td>
-                <td  class="borderall" width=5% style="text-align: center">3</td>
-                <td  class="borderall" width=5% style="text-align: center">4</td>
+                <td  class="borderall" width=5% style="text-align: center">2</td>
                 <td width=5% class="notop-nobottom" style="text-align: center"></td>
-                <td class="borderall"  width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
+                <td class="borderall"  width=5% style="text-align: center">{{ $split_nomer_hari[8]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[9]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[5]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[6]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[2]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_hari[3]}}</td>
+
                 <td width=5% class="notop-nobottom" style="text-align: center"></td>
-                <td class="borderall"  width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
-                <td  class="borderall" width=5% style="text-align: center">5</td>
+                <td class="borderall"  width=5% style="text-align: center">{{ $split_nomer_urut[0]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[1]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[2]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[3]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[4]}}</td>
+                <td  class="borderall" width=5% style="text-align: center">{{ $split_nomer_urut[5]}}</td>
             </table>
           </td>
         </tr>
@@ -130,7 +140,24 @@
     <div>
       <table class="container-header">
         <tr>
-          <td width=32%>Pas Photo</td>
+          <td width=32%>
+            <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Pas Foto
+            <br>
+            <br>
+            <br>
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tanda tangan
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pencari Kerja
+
+          </td>
           <td width=68% style="margin-left:0px;">  Ketentuan :
             <ol >
               <li  >Berlaku Nasional.</li>
@@ -146,7 +173,7 @@
     <div>
       <table class="container-header">
         <tr>
-          <td width=32%>Tanda Tangan <br />Pencari Kerja  </td>
+          <td width=32%> </td>
           <td width=68%>
             <table class="container-inside">
               <tr>
@@ -194,14 +221,13 @@
       </table>
     </div>
     @php
-   $nama = str_pad(strtoupper($data_pemohon->nama), 40);
-   $baris1  = substr($nama, 0, 20);
-   $baris2  = substr($nama, 20, 40);
-
-   $data_nama = str_split(($baris1));
-   $data_nama2 = str_split(($baris2));
-
-  @endphp
+      $panjang_nama = strlen($data_pemohon->nama);
+      $nama = str_pad(strtoupper($data_pemohon->nama), 40);
+      $baris1  = substr($nama, 0, 20);
+      $baris2  = substr($nama, 20, 40);
+      $data_nama = str_split(($baris1));
+      $data_nama2 = str_split(($baris2));
+    @endphp
     <div>
       <table class="container-header">
         <tr>
@@ -216,6 +242,7 @@
           </table></td>
         </tr>
       </table>
+      @if ($panjang_nama>20)
       <table class="container-header">
         <tr>
           <td width=32%> </td>
@@ -229,6 +256,8 @@
           </table></td>
         </tr>
       </table>
+      @endif
+
     </div>
     <div>
       <table class="container-header">
@@ -314,7 +343,6 @@
         </tr>
       </table>
     </div>
-
     <div>
       <table class="container-header">
         <tr>
@@ -326,55 +354,164 @@
     <div>
       <table class="container-header">
         <tr>
-
           <td width=32%>Nomer Telp/HP</td>
           <td width=68%>: {{ substr($data_pemohon->nomer_hp, 0, 4) . "-" . substr($data_pemohon->nomer_hp, 4,4) . "-" . substr($data_pemohon->nomer_hp, 8,7) }}</td>
         </tr>
       </table>
     </div>
-
     <table class="container-header">
-
         <tr>
           <td width= 80%  colspan="3"><b>Pendidikan Formal</b></td>
-          <td width= 23%  rowspan="9" style="text-align: center">  Pengantar Kerja/Petugas<br>Antar Kerja<br><br><br><br><br>  Agoestin F. SH., M.Si</td>
+          <td width= 23%  rowspan="9" style="text-align: center">   Pengantar Kerja/Petugas<br>Antar Kerja<br><br><br><br><br>  {{ $data_pemohon->penandatangan }}
+            <br>{{ $data_pemohon->nip_penandatangan }}</td>
         </tr>
-        <tr>
-          <td width=32%>SLTP/Sederajat</td>
-          <td width=35%>SMPN 3 Bojonegoro</td>
-          <td width= 10%>Thn 1999</td>
-        </tr>
-        <tr>
-          <td width=32%>SLTA/SMK/Sederajat</td>
-          <td width=35%>SMAN 1 Bojonegoro</td>
-          <td width= 10%>Thn 1999</td>
-        </tr>
-        <tr>
-          <td>S1/S2/S3</td>
-          <td>S1 Brawijaya/Teknik Elektro</td>
-          <td>Thn 2003</td>
-        </tr>
-        <tr>
-          <td  colspan="3"><b>Keterampilan</b></td>
-        </tr>
-        <tr>
-          <td>Memasak</td>
-          <td></td>
-          <td>Thn 2001</td>
-        </tr>
-        <tr>
-          <td>Menjahit</td>
-          <td></td>
-          <td>Thn 2019</td>
-        </tr>
-        <tr>
-          <td>Menari</td>
-          <td></td>
-          <td>Thn 2019</td>
-        </tr>
+          @php
+            $data_sd = $data_pendidikan->firstWhere('tingkat_pendidikan',1);
+            if($data_sd){
+              $nama_sd = $data_sd->nama_institusi;
+              $sd_lulus = 'Thn '.$data_sd->tahun_lulus;
+            }else {
+              $nama_sd ='-';
+              $sd_lulus ='-';
+            }
+            $data_smp = $data_pendidikan->firstWhere('tingkat_pendidikan',2);
+            if($data_smp){
+              $nama_smp = $data_smp->nama_institusi;
+              $smp_lulus = 'Thn '.$data_smp->tahun_lulus;
+            }else {
+              $nama_smp ='-';
+              $smp_lulus ='-';
+            }
+            $data_sma = $data_pendidikan->firstWhere('tingkat_pendidikan',3);
+            if($data_sma){
+              $nama_sma = $data_sma->nama_institusi.'/'.$data_sma->jurusan;
+              $sma_lulus = 'Thn '.$data_sma->tahun_lulus;
+            }else {
+              $nama_sma ='-';
+              $sma_lulus ='-';
+            }
+
+            $data_diploma = $data_pendidikan->firstWhere('tingkat_pendidikan',4);
+            if($data_diploma){
+              $nama_diploma = $data_diploma->nama_institusi.'/'.$data_diploma->jurusan;
+              $diploma_lulus = 'Thn '.$data_diploma->tahun_lulus;
 
 
-      </table>
+            }else {
+              $nama_diploma ='-';
+              $diploma_lulus ='-';
+            }
+            $data_akta = $data_pendidikan->firstWhere('tingkat_pendidikan',5);
+            if($data_akta){
+              $nama_akta = $data_akta->nama_institusi.'/'.$data_akta->jurusan;
+              $akta_lulus = 'Thn '.$data_akta->tahun_lulus;
+            }else {
+              $nama_akta ='-';
+              $akta_lulus ='-';
+            }
+            $data_pt = $data_pendidikan->firstWhere('tingkat_pendidikan',6);
+            if($data_pt){
+              $nama_pt = $data_pt->nama_institusi.'/'.$data_pt->jurusan;
+              $pt_lulus = 'Thn '.$data_pt->tahun_lulus;
+            }else {
+              $nama_pt ='-';
+              $pt_lulus ='-';
+            }
+          @endphp
+          @if($nama_sd !='-')
+            <tr>
+              <td width=32%>SD/Sederajat</td>
+              <td width=35%>{{$nama_sd }}</td>
+              <td width= 10%>{{$sd_lulus }}</td>
+            </tr>
+          @endif
 
+          @if ($nama_smp!='-')
+            <tr>
+              <td width=32%>SLTP/Sederajat</td>
+              <td width=35%>{{$nama_smp }}</td>
+              <td width= 10%>{{$smp_lulus }}</td>
+            </tr>
+          @endif
+         @if ($nama_sma !='-')
+          <tr>
+            <td width=32%>SLTA/SMK/Sederajat</td>
+            <td width=35%>{{$nama_sma }}</td>
+            <td width= 10%>{{$sma_lulus }}</td>
+          </tr>
+         @endif
+
+         @if ($nama_diploma!='-')
+         <tr>
+          <td width=32%>D-1/D-2/D-3/D-4</td>
+          <td width=35%>{{$nama_diploma }}</td>
+          <td width= 10%>{{$diploma_lulus }}</td>
+        </tr>
+         @endif
+
+         @if ($nama_akta!='-')
+          <tr>
+            <td width=32%>Akta-1/Akta-2/Akta-3/Akta-4</td>
+            <td width=35%>{{$nama_akta }}</td>
+            <td width= 10%>{{$akta_lulus }}</td>
+          </tr>
+         @endif
+
+        @if ($nama_pt!='-')
+          <tr>
+            <td width=32%>S1/S2/S3</td>
+            <td width=35%>{{$nama_pt }}</td>
+            <td width= 10%>{{$pt_lulus }}</td>
+          </tr>
+          @else
+            <tr>
+              <td width=32%> SLTA/Sederajat</td>
+              <td width=35%>-</td>
+              <td width= 10% class="text-center">Thn -</td>
+            </tr>
+            <tr>
+              <td width=32%> S1/S2/S3</td>
+              <td width=35%>-</td>
+              <td width= 10%  class="text-center">Thn -</td>
+            </tr>
+
+        @endif
+
+        <tr>
+          <td  colspan="3"><b>Keterampilan/Pengalaman Kerja</b></td>
+        </tr>
+        @if (!empty($data_pelatihan))
+          @foreach ($data_pelatihan as $index => $dataItem)
+              <tr>
+                  <td> {{ $dataItem->nama_jenispelatihan}}</td>
+                  <td> {{ $dataItem->lembaga_pelatihan}}</td>
+                  <td class="text-center">Thn {{ $dataItem->tahun}}</td>
+              </tr>
+          @endforeach
+        @else
+          <tr>
+            <td>1. ---------</td>
+            <td>-</td>
+            <td class="text-center">Thn -</td>
+          </tr>
+          <tr>
+            <td>2. ---------</td>
+            <td>-</td>
+            <td class="text-center">Thn -</td>
+          </tr>
+
+        @endif
+
+        @if (!empty($data_pekerjaan))
+        @foreach ($data_pekerjaan as $index => $dataItem)
+          <tr>
+              <td> {{ $dataItem->jabatan}}</td>
+              <td> {{ $dataItem->nama_perusahaan}}</td>
+              <td class="text-center">Thn {{ $dataItem->tahun}}</td>
+          </tr>
+        @endforeach
+        @endif
+
+    </table>
   </body>
 </html>
