@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Waktu pembuatan: 16 Bulan Mei 2022 pada 05.20
+-- Waktu pembuatan: 20 Bulan Mei 2022 pada 06.46
 -- Versi server: 5.7.34
 -- Versi PHP: 7.4.21
 
@@ -134,7 +134,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('axnJgK3z7qQzl7LcVAfUjmZc1y0WwdciqmQSo0Ec', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100.0) Gecko/20100101 Firefox/100.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVGJkTzV5VmF1QVBBdG1iamdKalBSV2lIajd5ZUdsT3drbHg5aGRQZyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9kaXNwZXJpbmFrZXIudGVzdC9hZG1pbi9kYWZ0YXIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkV1dYMS9IUEVpQjQ2WkJKcUVUY2MzZTZxM1ZOUEJjcjBlbmNrRmxNNzJ5NDlqUnBaWWxUVTYiO30=', 1652667527);
+('CZXj9GlUqtnG8d0cWOVZhK3Chi3EVm4QaVYmI2W9', NULL, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:100.0) Gecko/20100101 Firefox/100.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieFZ0Z3lWMG9VOFBnQ0oxVmJ5U2Q0SGtyeEd0eThmbEFhTzBLOUp1aCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjg6Imh0dHA6Ly9kaXNwZXJpbmFrZXIudGVzdC9hazEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1653028778);
 
 -- --------------------------------------------------------
 
@@ -171,15 +171,15 @@ CREATE TABLE `tbl_ak1` (
   `completed` tinyint(1) NOT NULL DEFAULT '0',
   `pejabat_id` int(2) DEFAULT NULL,
   `penandatangan` varchar(200) DEFAULT NULL,
-  `nip_penandatangan` varchar(100) NOT NULL,
+  `nip_penandatangan` varchar(100) DEFAULT NULL,
   `cek_cleaning` tinyint(1) NOT NULL DEFAULT '0',
   `tahapan` varchar(255) DEFAULT '0',
   `status_id` tinyint(1) DEFAULT '1',
   `nama_status` varchar(50) DEFAULT NULL,
   `keterangan` varchar(350) DEFAULT NULL,
   `tahun` int(4) DEFAULT NULL,
-  `bulan` int(2) NOT NULL,
-  `minggu_ke` int(2) NOT NULL,
+  `bulan` int(2) DEFAULT NULL,
+  `minggu_ke` int(2) DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -191,8 +191,10 @@ CREATE TABLE `tbl_ak1` (
 --
 
 INSERT INTO `tbl_ak1` (`ak1_id`, `rand_ak1`, `nama`, `nik`, `tempat_lahir`, `tgl_lahir`, `jeniskelamin_id`, `nama_jeniskelamin`, `agama_id`, `nama_agama`, `kawin_id`, `nama_kawin`, `kecamatan_id`, `nama_kecamatan`, `keldesa_id`, `nama_keldesa`, `alamat`, `nomer_hp`, `email`, `server`, `foto_ktp`, `foto_diri`, `tanggal_jadwal`, `jam_jadwal`, `hari_jadwal`, `completed`, `pejabat_id`, `penandatangan`, `nip_penandatangan`, `cek_cleaning`, `tahapan`, `status_id`, `nama_status`, `keterangan`, `tahun`, `bulan`, `minggu_ke`, `tanggal`, `created_at`, `updated_at`, `NA`) VALUES
-(2, 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Supriyadi Santoso', '1234558673789874', 'Mojokerto', '1974-11-15', '1', 'Laki-laki', '1', 'Islam', 1, 'Kawin', '15', 'Bojonegoro', '152002', 'Pacul', 'Jln. Panglima Polim 58C Bojonegoro', '0874368967938749', 'silviana@yahoo.com', NULL, 'VraOLSvS.png', 'qRceJwKU.png', '2022-05-12', '13:00-15:00', 'Kamis', 1, 2, 'Agoestin F. SH., M.Si', '1234567890', 0, '0', 1, 'Pengajuan', NULL, 2022, 5, 18, '2022-05-08', '2022-05-08 11:46:42', '2022-05-08 11:46:42', '1'),
-(3, 'WCylT0r0lMBx67NI47dQGjG9SnhFNjmNlaK7jnCty7sXb4EcDMeuUBAdgZ21qCZs', 'Mariana Natalie', '1234567890123456', 'Surabaya', '2015-02-10', '1', 'Laki-laki', '2', 'Katolik', 2, 'Tidak Kawin', '20', 'Kasiman', '202007', 'Ngaglik', 'Jln. Kartini 28 Kasiman', '08121233455667', 'boedyirh@yahoo.co.id', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '', 0, '0', 2, 'Belum diambil', NULL, 2022, 5, 19, '2022-05-15', '2022-05-15 04:04:01', '2022-05-15 04:04:01', '1');
+(2, 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Supriyadi Santoso', '1234558673789874', 'Mojokerto', '1974-11-15', '1', 'Laki-laki', '1', 'Islam', 1, 'Kawin', '15', 'Bojonegoro', '152002', 'Pacul', 'Jln. Panglima Polim 58C Bojonegoro', '0874368967938749', 'silviana@yahoo.com', NULL, 'VraOLSvS.png', 'qRceJwKU.png', '2022-05-12', '13:00-15:00', 'Kamis', 1, 1, 'Slamet, S.E., M.Pd.', '19661215 198703 1 005', 0, '0', 1, 'Pengajuan', NULL, 2022, 5, 18, '2022-05-08', '2022-05-08 11:46:42', '2022-05-08 11:46:42', '1'),
+(3, 'WCylT0r0lMBx67NI47dQGjG9SnhFNjmNlaK7jnCty7sXb4EcDMeuUBAdgZ21qCZs', 'Mariana Natalie', '1234567890123456', 'Surabaya', '2015-02-10', '1', 'Laki-laki', '2', 'Katolik', 2, 'Tidak Kawin', '20', 'Kasiman', '202007', 'Ngaglik', 'Jln. Kartini 28 Kasiman', '08121233455667', 'boedyirh@yahoo.co.id', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, '', 0, '0', 2, 'Belum diambil', NULL, 2022, 5, 19, '2022-05-15', '2022-05-15 04:04:01', '2022-05-15 04:04:01', '1'),
+(4, 'WeSKejYQHWg1GiVoknRcJKSHsDntEKzEbvveXLFyD4uQItQvHVd6rVmFI2c6g6Y3', 'Mariana Natalie', '1234567890123456', 'Surabaya', '2015-02-10', '1', 'Laki-laki', '2', 'Katolik', 2, 'Tidak Kawin', '20', 'Kasiman', '202002', 'Betet', 'Jln. Kartini 28 Kasiman', '08121233455667', 'boedyirh@yahoo.co.id', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, '0', 1, NULL, NULL, 2022, 5, 20, '2022-05-20', '2022-05-20 06:33:19', '2022-05-20 06:33:19', '1'),
+(5, 'XkRSQFvY2FSiNloNH16rJ3ZZslLZLfpJyHwtSzuYIIo7n45nzEAP0H3t71pCEQuG', 'Mariana Natalie', '1234567890123456', 'Surabaya', '2015-02-10', '1', 'Laki-laki', '2', 'Katolik', 2, 'Tidak Kawin', '20', 'Kasiman', '202002', 'Betet', 'Jln. Kartini 28 Kasiman', '08121233455667', 'boedyirh@yahoo.co.id', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 0, '0', 1, NULL, NULL, 2022, 5, 20, '2022-05-20', '2022-05-20 06:34:22', '2022-05-20 06:34:22', '1');
 
 -- --------------------------------------------------------
 
@@ -245,7 +247,7 @@ CREATE TABLE `tbl_ak1_pekerjaan` (
 INSERT INTO `tbl_ak1_pekerjaan` (`ak1_pekerjaan_id`, `rand_ak1_pekerjaan`, `rand_ak1`, `bidang_usaha`, `nama_perusahaan`, `jabatan`, `tahun`, `awal_masuk`, `sampai_tanggal`, `server`, `file_pendukung`, `file_asli`, `is_saved`, `dipakai`, `cek_cleaning`, `NA`) VALUES
 (1, 'puBzIekio0XLf3J0HbFjt7o0BrqqUy3cTYcpmUn4sd6NGua8mNfEVshyyfs2o7KY', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', 'Tiket Kereta api', 'PT Gambir', 'Staff Marketing', '2021', NULL, NULL, NULL, '/private/var/folders/q5/q40k_0v15gz0mvn1__y9bznw0000gp/T/phpqGWwXQ', '2qMD1.png', 1, 0, 0, '1'),
 (2, 'Otr2inGHkxhq95l6J3veH9L7kQZ9SxsUcUaRaCnHv4PXvDEobLi8UUXfy0uRfduG', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', 'Makanan', 'UD Sambil Lalu', 'Staff Keuangan', '2010', NULL, NULL, NULL, '/private/var/folders/q5/q40k_0v15gz0mvn1__y9bznw0000gp/T/phpx7rJdc', '2qMD1.png', 1, 0, 0, '1'),
-(3, 'pQYl7IXp9R7am4kyagLvIug3BdbjzJKg03gfw8oedLVein7BmZFND4GgU8yTudIr', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Kontraktor', 'UPI', 'Staff Keuangan', '2012', NULL, NULL, NULL, '0WL7Qv0t.png', 'blank-img2.png', 1, 1, 0, '1'),
+(3, 'pQYl7IXp9R7am4kyagLvIug3BdbjzJKg03gfw8oedLVein7BmZFND4GgU8yTudIr', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Kontraktor', 'UPI', 'Staff Keuangan', '2012', NULL, NULL, NULL, '0WL7Qv0t.png', 'blank-img2.png', 1, 0, 0, '1'),
 (4, 'chNOrtSNKuCjaarhIxYXRQEgb8axLJ6htwTmslmsT5CxLEO0Rtg7UfmMl8bTbsgs', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', 'Kontraktor', 'Smelting', 'Staff HRD', '2021', NULL, NULL, NULL, 'nzwFc1LT.png', 'Disperinaker.png', 1, 0, 0, '1');
 
 -- --------------------------------------------------------
@@ -280,8 +282,9 @@ CREATE TABLE `tbl_ak1_pelatihan` (
 INSERT INTO `tbl_ak1_pelatihan` (`ak1_pelatihan_id`, `rand_ak1_pelatihan`, `rand_ak1`, `jenis_pelatihan`, `nama_jenispelatihan`, `lembaga_pelatihan`, `hasil`, `tahun`, `server`, `file_pendukung`, `file_asli`, `is_saved`, `cek_cleaning`, `dipakai`, `status`, `NA`) VALUES
 (1, 'sT2osPfGRkBfICjuTNrIRLSEq6QB8sDojeLps4F76BMRKOEPm8Ke9c0rRZGv59Fw', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '1', 'Menjahit', 'PT Garuda', NULL, '2021', NULL, 'oaoaFZyO.png', '2qMD1.png', 1, 0, 0, NULL, '1'),
 (3, 'j1DL7nCCBw9Wer00EcMJ3Chck43qgSXIeaXhZoeahuP0ogsfFMtV9Fbr3ny2p2Ue', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '2', 'Mengelas', 'PT Las Super', NULL, '2019', NULL, 'NUWXKpd2.png', 'blank-img2.png', 1, 0, 0, NULL, '1'),
-(4, 'bbJp3MR4PCMLqSHndFhhEphIkbE0TPu4uFSoGfYVG9WEZkCNQaPc3Pbamkyzi4ij', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '2', 'Mengelas', 'UD Jahit', NULL, '2021', NULL, 'PTXq8koT.png', 'blank-img2.png', 1, 0, 0, NULL, '1'),
-(5, 'B3Gzb4bFmr3K2rPb9ptwXwD9zn3nseCit42NBQXu08Ka25xe0rmb6ezr1XsHkFhH', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '3', 'Public Speaking', 'CV Garuda', NULL, '2000', NULL, 'YUqFIx3O.png', 'arsipbpr filter.png', 1, 0, 0, NULL, '1');
+(4, 'bbJp3MR4PCMLqSHndFhhEphIkbE0TPu4uFSoGfYVG9WEZkCNQaPc3Pbamkyzi4ij', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '7', 'Pengolahan Hasil Pengairan', 'UD Jahit', NULL, '2021', NULL, 'PTXq8koT.png', 'blank-img2.png', 1, 0, 0, NULL, '1'),
+(5, 'B3Gzb4bFmr3K2rPb9ptwXwD9zn3nseCit42NBQXu08Ka25xe0rmb6ezr1XsHkFhH', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '13', 'Industri Olahan Hasil Hutan', 'CV Garuda', NULL, '2000', NULL, 'YUqFIx3O.png', 'arsipbpr filter.png', 1, 0, 0, NULL, '1'),
+(6, 'OmEIucuOrhCzPXhiOWsl71RWb9OyQk75p9UCYtIIkFgFLBPrJaUZCNkpAvU77erc', 'XkRSQFvY2FSiNloNH16rJ3ZZslLZLfpJyHwtSzuYIIo7n45nzEAP0H3t71pCEQuG', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -291,14 +294,14 @@ INSERT INTO `tbl_ak1_pelatihan` (`ak1_pelatihan_id`, `rand_ak1_pelatihan`, `rand
 
 CREATE TABLE `tbl_ak1_pendidikan` (
   `ak1_pendidikan_id` int(11) NOT NULL,
-  `rand_ak1_pendidikan` varchar(80) NOT NULL,
+  `rand_ak1_pendidikan` varchar(80) DEFAULT NULL,
   `rand_ak1` varchar(80) DEFAULT NULL,
   `tingkat_pendidikan` varchar(50) DEFAULT NULL,
   `nama_tingkatpendidikan` varchar(255) DEFAULT NULL,
   `nama_institusi` varchar(80) DEFAULT NULL,
   `jurusan` varchar(80) DEFAULT NULL,
   `tahun_lulus` varchar(40) DEFAULT NULL,
-  `server` varchar(100) NOT NULL,
+  `server` varchar(100) DEFAULT NULL,
   `file_pendukung` varchar(255) DEFAULT NULL,
   `file_asli` varchar(255) DEFAULT NULL,
   `cek_cleaning` tinyint(1) NOT NULL DEFAULT '0',
@@ -318,7 +321,8 @@ INSERT INTO `tbl_ak1_pendidikan` (`ak1_pendidikan_id`, `rand_ak1_pendidikan`, `r
 (3, '9053nYHrmmMxDX2Hdxe4utY96IB3IkiMxwq6weGHy2tCILAVyO1py0GblSQvw0Ug', 'jetaOJpvvfoGHDuOhSnBz9UCamXSJZdExEItGmIWA0poGfyzA2jBbWRl7bnacX14', '3', 'SLTA', 'SMAN 3 Malang', 'IPA', '1991', '', 'fRQRw2HN.png', '2qMD1.png', 0, '1', 0, 1, '1'),
 (4, '3rJnp0uo3ORNeoQkFn59KHe0OWdQuS11tlFakUb0sCxjbu889m1uwYNNiRYNS2yv', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '5', 'Akta1-Akta4', 'SMP Negeri 1 Bojonegoro', 'IPS', '2012', '', 'IQDD3GmJ.jpg', 'demo politik.jpg', 0, '1', 1, 1, '1'),
 (5, 'RQKI8dllgYFzt9dyeuAsTDkmjef90frSyimxGaWp3YHJy00MWtBoJqVUre91vpXc', 'JsM2QmOJV77XYMD8E4FWH8paEUsxjQqTJCOUEB5ldYRmZKheiV12znLAyOGch94A', '6', 'S1/S2/S3', 'Universitas Brawijaya', 'FIA', '1997', '', 'hs1oioc0.jpg', 'demo politik.jpg', 0, '1', 1, 1, '1'),
-(7, 'zCOy6LeKVjOGCSg9zgofSY64OXV2wj1l7NbQ54vv7HRYvx8QRagMzlHGze0Y1oSF', 'WCylT0r0lMBx67NI47dQGjG9SnhFNjmNlaK7jnCty7sXb4EcDMeuUBAdgZ21qCZs', '3', 'SLTA/SMK', 'fdfdsf', 'fdfs', 'fdfd', '', 'SGzzI95u.png', 'arsipbpr filter.png', 0, '1', 0, 1, '1');
+(7, 'zCOy6LeKVjOGCSg9zgofSY64OXV2wj1l7NbQ54vv7HRYvx8QRagMzlHGze0Y1oSF', 'WCylT0r0lMBx67NI47dQGjG9SnhFNjmNlaK7jnCty7sXb4EcDMeuUBAdgZ21qCZs', '3', 'SLTA/SMK', 'fdfdsf', 'fdfs', 'fdfd', '', 'SGzzI95u.png', 'arsipbpr filter.png', 0, '1', 0, 1, '1'),
+(9, 'lxDMUoX9dNQf1JkpzCdaaPkmWDp8XD0Pye3WlAdrFTcRzblG1qJLASo0bWzbEoy0', 'XkRSQFvY2FSiNloNH16rJ3ZZslLZLfpJyHwtSzuYIIo7n45nzEAP0H3t71pCEQuG', '4', 'D1,D2,D3,D4', 'dsdfs', 'dfsd', 'fdfd', NULL, 'rTcYbTtL.jpg', 'revisi3.jpg', 0, '1', 0, 1, '1');
 
 -- --------------------------------------------------------
 
@@ -408,9 +412,6 @@ INSERT INTO `tbl_dropdown` (`id`, `dropdown_type`, `value_dropdown`, `label_drop
 (18, 'agama', '4', 'Hindu', 4, NULL, NULL, '1', '1'),
 (19, 'agama', '5', 'Budha', 5, NULL, NULL, '1', '1'),
 (20, 'agama', '6', 'Konghucu', 6, NULL, NULL, '1', '1'),
-(21, 'jenis_pelatihan', '1', 'Menjahit', 1, NULL, NULL, '1', '1'),
-(22, 'jenis_pelatihan', '2', 'Mengelas', 2, NULL, NULL, '1', '1'),
-(23, 'jenis_pelatihan', '3', 'Public Speaking', 3, NULL, NULL, '1', '1'),
 (30, 'bidang_usaha', '1', 'Pertambangan', 1, NULL, NULL, '1', '1'),
 (31, 'bidang_usaha', '2', 'Pertanian', 2, NULL, NULL, '1', '1'),
 (32, 'bidang_usaha', '3', 'Perdagangan', 3, NULL, NULL, '1', '1'),
@@ -420,7 +421,52 @@ INSERT INTO `tbl_dropdown` (`id`, `dropdown_type`, `value_dropdown`, `label_drop
 (36, 'agama', '7', 'Lain-lain', 7, NULL, NULL, '1', '1'),
 (37, 'status_kartu', '1', 'Pengajuan', 1, NULL, NULL, '1', '1'),
 (38, 'status_kartu', '2', 'Belum diambil', 2, NULL, NULL, '1', '1'),
-(39, 'status_kartu', '3', 'Selesai', 3, NULL, NULL, '1', '1');
+(39, 'status_kartu', '3', 'Selesai', 3, NULL, NULL, '1', '1'),
+(86, 'jenis_pelatihan', '1', 'Aneka Kue', 1, NULL, NULL, '1', '1'),
+(87, 'jenis_pelatihan', '2', 'Bordir', 2, NULL, NULL, '1', '1'),
+(88, 'jenis_pelatihan', '3', 'Handycraft', 3, NULL, NULL, '1', '1'),
+(89, 'jenis_pelatihan', '4', 'Komputer', 4, NULL, NULL, '1', '1'),
+(90, 'jenis_pelatihan', '5', 'Menjahit', 5, NULL, NULL, '1', '1'),
+(91, 'jenis_pelatihan', '6', 'Pengolahan Hasil Hutan', 6, NULL, NULL, '1', '1'),
+(92, 'jenis_pelatihan', '7', 'Pengolahan Hasil Pengairan', 7, NULL, NULL, '1', '1'),
+(93, 'jenis_pelatihan', '8', 'Pengolahan Hasil Pertanian', 8, NULL, NULL, '1', '1'),
+(94, 'jenis_pelatihan', '9', 'Pengolahan Hasil Peternakan', 9, NULL, NULL, '1', '1'),
+(95, 'jenis_pelatihan', '10', 'Tata Rias', 10, NULL, NULL, '1', '1'),
+(96, 'jenis_pelatihan', '11', 'Tata Boga', 11, NULL, NULL, '1', '1'),
+(97, 'jenis_pelatihan', '12', 'Otomotif', 12, NULL, NULL, '1', '1'),
+(98, 'jenis_pelatihan', '13', 'Industri Olahan Hasil Hutan', 13, NULL, NULL, '1', '1'),
+(99, 'jenis_pelatihan', '14', 'Sablon/Printing', 14, NULL, NULL, '1', '1'),
+(100, 'jenis_pelatihan', '15', 'Olahan Hasil Pertanian', 15, NULL, NULL, '1', '1'),
+(101, 'jenis_pelatihan', '16', 'Designer', 16, NULL, NULL, '1', '1'),
+(102, 'jenis_pelatihan', '17', 'Pembuatan Pupuk Organik', 17, NULL, NULL, '1', '1'),
+(103, 'jenis_pelatihan', '19', 'Pengolahan Limbah', 19, NULL, NULL, '1', '1'),
+(104, 'jenis_pelatihan', '20', 'Hantaran', 20, NULL, NULL, '1', '1'),
+(105, 'jenis_pelatihan', '21', 'Pelatihan Asisten Perawat Kesehatan/Paramedis', 21, NULL, NULL, '1', '1'),
+(106, 'jenis_pelatihan', '22', 'Managemen Farmasi', 22, NULL, NULL, '1', '1'),
+(107, 'jenis_pelatihan', '24', 'Pelatihan Kapal Pesiar', 24, NULL, NULL, '1', '1'),
+(108, 'jenis_pelatihan', '25', 'Pelatihan Bahasa Inggris', 25, NULL, NULL, '1', '1'),
+(109, 'jenis_pelatihan', '26', 'Pelatihan Bahasa Jepang', 26, NULL, NULL, '1', '1'),
+(110, 'jenis_pelatihan', '27', 'Kursus Bahasa Inggris', 27, NULL, NULL, '1', '1'),
+(111, 'jenis_pelatihan', '28', 'Pelatihan Pengolahan Hasil Pertanian', 28, NULL, NULL, '1', '1'),
+(112, 'jenis_pelatihan', '29', 'Pelatihan Pembuatan Pupuk Organik', 29, NULL, NULL, '1', '1'),
+(113, 'jenis_pelatihan', '31', 'Pelatiihan Pembuatan Kue', 31, NULL, NULL, '1', '1'),
+(114, 'jenis_pelatihan', '32', 'Pengembangan Tanaman Holtikultura', 32, NULL, NULL, '1', '1'),
+(115, 'jenis_pelatihan', '33', 'Pembuatan Taman', 33, NULL, NULL, '1', '1'),
+(116, 'jenis_pelatihan', '35', 'Service Printer', 35, NULL, NULL, '1', '1'),
+(117, 'jenis_pelatihan', '36', 'Kerajinan Kayu', 36, NULL, NULL, '1', '1'),
+(118, 'jenis_pelatihan', '37', 'Pelatihan Handycraft', 37, NULL, NULL, '1', '1'),
+(119, 'jenis_pelatihan', '38', 'Rias ', 38, NULL, NULL, '1', '1'),
+(120, 'jenis_pelatihan', '40', 'Tari', 40, NULL, NULL, '1', '1'),
+(121, 'jenis_pelatihan', '41', 'Batik', 41, NULL, NULL, '1', '1'),
+(122, 'jenis_pelatihan', '42', 'Pembuatan Handtaran', 42, NULL, NULL, '1', '1'),
+(123, 'jenis_pelatihan', '43', 'Kerajinan Lukis', 43, NULL, NULL, '1', '1'),
+(124, 'jenis_pelatihan', '44', 'Kursus Pendidikan Dan Keterampilan Bahasa Jepang', 44, NULL, NULL, '1', '1'),
+(125, 'jenis_pelatihan', '45', 'Terapi Pijat Refleksi', 45, NULL, NULL, '1', '1'),
+(126, 'jenis_pelatihan', '47', 'Pengelasan', 47, NULL, NULL, '1', '1'),
+(127, 'jenis_pelatihan', '48', 'Teknologi Informasi Dan Komunikasi', 481, NULL, NULL, '1', '1'),
+(128, 'jenis_pelatihan', '50', 'Industri Kreatif', 50, NULL, NULL, '1', '1'),
+(129, 'jenis_pelatihan', '51', 'Bahasa Inggris', 51, NULL, NULL, '1', '1'),
+(130, 'jenis_pelatihan', '52', 'Cinematography Dan Vidiography', 52, NULL, NULL, '1', '1');
 
 -- --------------------------------------------------------
 
@@ -1060,8 +1106,8 @@ CREATE TABLE `tbl_pejabat` (
 --
 
 INSERT INTO `tbl_pejabat` (`id`, `nama`, `nip`, `jabatan`, `urutan`, `status`) VALUES
-(1, 'Joko Santoso, SH. MH.', '19631114 199103 1 006', 'Pembina', 1, 1),
-(2, 'Agoestin F. SH., M.Si', '1234567890', NULL, 2, 1);
+(1, 'Slamet, S.E., M.Pd.', '19661215 198703 1 005', 'Pembina', 1, 1),
+(2, 'Agoestin Faridjani, SH., M.Si', '19680818 199403 2 012', 'Pembina', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -9505,7 +9551,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `tbl_ak1`
 --
 ALTER TABLE `tbl_ak1`
-  MODIFY `ak1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ak1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_ak1_foto`
@@ -9523,13 +9569,13 @@ ALTER TABLE `tbl_ak1_pekerjaan`
 -- AUTO_INCREMENT untuk tabel `tbl_ak1_pelatihan`
 --
 ALTER TABLE `tbl_ak1_pelatihan`
-  MODIFY `ak1_pelatihan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ak1_pelatihan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_ak1_pendidikan`
 --
 ALTER TABLE `tbl_ak1_pendidikan`
-  MODIFY `ak1_pendidikan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ak1_pendidikan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_aplikasi`
@@ -9547,7 +9593,7 @@ ALTER TABLE `tbl_cetak`
 -- AUTO_INCREMENT untuk tabel `tbl_dropdown`
 --
 ALTER TABLE `tbl_dropdown`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_menu`
