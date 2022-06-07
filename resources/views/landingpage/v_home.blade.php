@@ -58,12 +58,17 @@
         }
     </style>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
 
 @endpush
 
 @push('scripts')
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
 <script>
     new Pikaday({
         field: document.getElementById('tgl_lahir'),
@@ -71,6 +76,7 @@
         yearRange: [1970, 2009],
     })
 </script>
+
 @endpush
 
 @section('content')
@@ -365,7 +371,7 @@
 
                         <!-- akhir fieldsets Step2 Data Pendidikan -->
 
-                        <!-- fieldsets Step3 Data Pelatihan-->
+                        <!-- fieldsets Step3 Data Pelatihan SedangMengerjakanIni-->
                             @if ($currentStep==3)
                                 <fieldset style="display: block; left: 0%; opacity: 1; transform: scale(1); position: absolute;">
                                     <h2 class="fs-title">Data Pelatihan</h2>

@@ -96,6 +96,7 @@
               </div>
 
             @livewire('backend.pejabat',['rand_ak1'=>$rand_ak1])
+            @livewire('backend.status-completed',['rand_ak1'=>$rand_ak1])
         </div>
         <div class="col-md-5">
             @livewire('backend.show-pendidikan',['rand_ak1'=>$rand_ak1])

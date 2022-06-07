@@ -21,7 +21,7 @@
                                 <input type="hidden" name="dataPendidikan[{{$index}}][rand_ak1_pendidikan]"
                                     wire:model.lazy="dataPendidikan.{{$index}}.rand_ak1_pendidikan" />
                                 @if($dataItem['tingkat_pendidikan'])
-                                <?php $nama_tingkat_pendidikan  = App\Models\DropdownModel::getTingkatPendidikan($dataItem['tingkat_pendidikan']); ?>
+                                    <?php $nama_tingkat_pendidikan  = App\Models\DropdownModel::getTingkatPendidikan($dataItem['tingkat_pendidikan']); ?>
                                     {{ $nama_tingkat_pendidikan->label_dropdown  }}
                                 @endif
                             @else
@@ -34,10 +34,10 @@
                                     @endforeach
                                 </select>
                                 @if($errors->has('pesan_selesaikan.' . $index))
-                                <em class="invalid-feedback">
-                                    {{ $errors->first('pesan_selesaikan.' . $index) }}
-                                </em>
-                            @endif
+                                    <em class="invalid-feedback">
+                                        {{ $errors->first('pesan_selesaikan.' . $index) }}
+                                    </em>
+                                @endif
                             @endif
                         </td>
 
@@ -90,7 +90,7 @@
                                 </button> --}}
 
                             @elseif($dataItem['tingkat_pendidikan'])
-                            <button class="btn btn-sm btn-success mr-1" title="Simpan"
+                                <button class="btn btn-sm btn-success mr-1" title="Simpan"
                                         wire:click.prevent="savePendidikan({{$index}})">
                                         Simpan
                                 </button>

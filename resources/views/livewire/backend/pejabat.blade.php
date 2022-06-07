@@ -22,7 +22,5 @@
 
 
      </div>
-     <div class="box-footer text-center">
-        <a href="/admin/daftar" class="btn   btn-warning">Kembali</a>
-     </div>
+
 </div>

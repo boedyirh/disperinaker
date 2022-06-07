@@ -56,8 +56,10 @@ class DataPengalamankerjaLw extends Component
     public function render()
     {
 
-
-        return view('livewire.landingpage.data-pengalamankerja-lw');
+        $datadropdown =[
+            'd_jenisPengalamankerja' =>DropdownModel::where('dropdown_type','jenis_pengalamankerja')->where('NA','1')->orderBy('urutan')->get(['value_dropdown','label_dropdown']),
+        ];
+        return view('livewire.landingpage.data-pengalamankerja-lw',$datadropdown);
     }
 
     public function addPengalamankerja()

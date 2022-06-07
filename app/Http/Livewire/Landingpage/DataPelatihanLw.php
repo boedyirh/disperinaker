@@ -18,12 +18,16 @@ class DataPelatihanLw extends Component
     public $rand_ak1;
     public $rand_ak1_pelatihan;
     public $jenis_pelatihan;
+    public $current_index;
     public $lembaga_pelatihan;
-    public $jurusan;
+    public $tahun;
 
-    public $tahun_lulus;
+    public $data_dropdown=[];
+
+
     public $nilai;
     public $file_pendukung;
+    public $categories=[] ;
 
     public function mount($rand_ak1)
     {
@@ -31,10 +35,12 @@ class DataPelatihanLw extends Component
         $this->Ak1Model = new Ak1Model();
         $this->PelatihanAk1Model = new PelatihanAk1Model();
              //Daftar pelatihan yang pernah ditempuh
+
+
+
         $this->list_ak1_pelatihan = PelatihanAk1Model::where('rand_ak1',$this->rand_ak1)
         ->orderBy('ak1_pelatihan_id','asc')
         ->get();
-
         if ($this->list_ak1_pelatihan) {
             foreach ($this->list_ak1_pelatihan as $item) {
                 $this->dataPelatihan[] = [
@@ -56,11 +62,7 @@ class DataPelatihanLw extends Component
 
     public function render()
     {
-
-        $datadropdown =[
-            'd_jenisPelatihan' =>DropdownModel::where('dropdown_type','jenis_pelatihan')->where('NA','1')->orderBy('urutan')->get(['value_dropdown','label_dropdown']),
-        ];
-        return view('livewire.landingpage.data-pelatihan-lw',$datadropdown);
+        return view('livewire.landingpage.data-pelatihan-lw');
     }
 
     public function addPelatihan()
@@ -105,15 +107,11 @@ class DataPelatihanLw extends Component
         $this->dataPelatihan[$index]['is_saved']=1;
         $rand_ak1_pelatihan = $data['rand_ak1_pelatihan'];
         $rand_berkas      = Str::random(8); //random id untuk setiap berkas
-        $nama_jenispelatihan       = DropdownModel::where('dropdown_type','jenis_pelatihan')
-        ->where('value_dropdown',$data['jenis_pelatihan'])
-        ->first();
-        $nama_jenispelatihan     = $nama_jenispelatihan->label_dropdown;
+
         $file_pendukung        = $data['file_pendukung'];
         if(is_string($file_pendukung)){
             $data_update= [
                 'jenis_pelatihan' => $data['jenis_pelatihan'],
-                'nama_jenispelatihan' => $nama_jenispelatihan,
                 'lembaga_pelatihan' => $data['lembaga_pelatihan'],
                 'tahun' => $data['tahun'],
                 'is_saved' => 1,
@@ -134,7 +132,6 @@ class DataPelatihanLw extends Component
 
             $data_update= [
                 'jenis_pelatihan' => $data['jenis_pelatihan'],
-                'nama_jenispelatihan' => $nama_jenispelatihan,
                 'lembaga_pelatihan' => $data['lembaga_pelatihan'],
                 'file_pendukung' => $fileName,
                 'file_asli' => $file_asli,
@@ -172,6 +169,7 @@ class DataPelatihanLw extends Component
         //Saat mode edit, langsung diset is_saved=0, setelah klik save diset is_saved=1
         $this->dataPelatihan[$index]['is_saved'] = 0;
     }
+
 
 
 }

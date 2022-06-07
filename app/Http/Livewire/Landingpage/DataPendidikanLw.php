@@ -168,7 +168,7 @@ class DataPendidikanLw extends Component
         $this->dataPendidikan = array_values($this->dataPendidikan);
     }
 
-    public function editPendidikan($index)
+    public function editPendidikanxx($index)
     {
         //Jika ada record yang diedit dan belum disave, munculkan error
         foreach ($this->dataPendidikan as $key => $item) {

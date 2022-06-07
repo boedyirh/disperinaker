@@ -14,15 +14,31 @@
 
                 @foreach ($dataPelatihan as $index => $dataItem)
                 <tr>
-
                     <td>
+
                         @if($dataItem['is_saved'])
-                            <input type="hidden" name="dataPelatihan[jenis_pelatihan]"
-                                   wire:model.lazy="dataPelatihan.{{$index}}.jenis_pelatihan" />
-                            {{ $dataItem['jenis_pelatihan'] }}
+                            <input type="hidden" name="dataPelatihan[{{$index}}][rand_ak1_pelatihan]"
+                                   wire:model.lazy="dataPelatihan.{{$index}}.rand_ak1_pelatihan" />
+                            @if($dataItem['jenis_pelatihan'])
+                            <?php $nama_jenis_pelatihan  = App\Models\DropdownModel::getJenisPelatihan($dataItem['jenis_pelatihan']); ?>
+                                  {{ $nama_jenis_pelatihan->label_dropdown  }}
+                            @endif
                         @else
-                            <input type="text" name="dataPelatihan[jenis_pelatihan]"
-                                   class="form-control" wire:model.lazy="dataPelatihan.{{$index}}.jenis_pelatihan" />
+                            <div wire:ignore>
+                                <select id="categories" name="dataPelatihan[{{$index}}][jenis_pelatihan]"
+                                        class="form-control select2 {{ $errors->has('dataPelatihan') ? ' is-invalid' : '' }}"
+                                        wire:model.lazy="dataPelatihan.{{$index}}.jenis_pelatihan">
+                                    <option value="">-Pilih Pelatihan-</option>
+                                    @foreach($d_jenisPelatihan as $item)
+                                        <option value="{{ $item['value_dropdown']}}">{{ $item['label_dropdown'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @if($errors->has('pesan_selesaikan.' . $index))
+                            <em class="invalid-feedback">
+                                {{ $errors->first('pesan_selesaikan.' . $index) }}
+                            </em>
+                        @endif
                         @endif
                     </td>
 
@@ -66,7 +82,7 @@
                             </button> --}}
 
                         @elseif($dataItem['jenis_pelatihan'])
-                            <button class="btn btn-sm btn-success mr-1"
+                        <button class="btn btn-sm btn-success mr-1"
                                     wire:click.prevent="savePelatihan({{$index}})">
                                 Simpan
                             </button>
@@ -95,30 +111,20 @@
 
 @push('scripts')
     <script>
-      //inline script
-      //event : livewire:load
-      // parameter kedua adalah functionnya
       document.addEventListener("livewire:load", () => {
-        let el = $('.select2')
+        let el = $('#categories')
         initSelect()
 
-        //Livewire Hook gives us the opportunity to execute javascript during certain events.
-        // message.processed
-        // Called after Livewire processes all side effects (including DOM-diffing) from a message
         Livewire.hook('message.processed', (message, component) => {
           initSelect()
         })
 
-        //Livewire.on Listening for Events in Javascript
         Livewire.on('setCategoriesSelect', values => {
           el.val(values).trigger('change.select2')
         })
 
         el.on('change', function (e) {
-
-            @this.set('dataPelatihan.'+el.attr('name')+'.jenis_pelatihan', el.select2("val"))
-
-
+            @this.set('product.categories', el.select2("val"))
         })
 
         function initSelect () {
