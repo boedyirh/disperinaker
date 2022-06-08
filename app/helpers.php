@@ -13,6 +13,18 @@ else   //Status Lain
   return $StatusLabel;
 }
 
+function labelComplete($id)
+{
+if  ($id=='1')  //Status Awal - Status Pengajuan
+   { $StatusLabel = "<span class='label label-success lb-sm'>Komplit</span>"; }
+else if ($id=='0')
+   { $StatusLabel = "<span class='label label-danger lb-sm'>Belum Komplit</span>"; }
+else   //Status Lain
+   { $StatusLabel = "<span class='label label-primary lb-sm'>Belum diverifikasi</span>"; }
+  return $StatusLabel;
+}
+
+
 function toggle10($cek)
 {
    if($cek==1){

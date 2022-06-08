@@ -38,8 +38,8 @@ Route::get('/ak1', [App\Http\Controllers\Ak1Controller::class, 'step1DataDiri'])
 
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('index');
 Route::get('/admin/daftar', [App\Http\Controllers\AdminController::class, 'daftar'])->name('ak1daftar');
-Route::get('/admin/proses_hari_ini', [App\Http\Controllers\AdminController::class, 'proses_hari_ini'])->name('proses_hari_ini');
-Route::get('/admin/daftargagal', [App\Http\Controllers\AdminController::class, 'daftargagal'])->name('daftargagal');
+Route::get('/admin/siapcetak', [App\Http\Controllers\AdminController::class, 'siapcetak'])->name('siapcetak');
+Route::get('/admin/pengambilan', [App\Http\Controllers\AdminController::class, 'pengambilan'])->name('pengambilan');
 
 // Route::get('/admin/wawancara', [App\Http\Controllers\Ak1wawancaraController::class, 'wawancara'])->name('wawancara');
 // Route::get('/admin/penetapan_libur', [App\Http\Controllers\AdminController::class, 'penetapan_libur'])->name('penetapan_libur');

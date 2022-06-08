@@ -52,7 +52,7 @@ class AdminController extends Controller
 
     }
 
-    public function proses_hari_ini()
+    public function siapcetak()
     {
         $data =[
             'menu' =>$this->MenuModel->allData(),
@@ -63,11 +63,11 @@ class AdminController extends Controller
             'ak1_list' =>$this->Ak1Model->allData(),
         ];
 
-        return view('v_ak1_proses_hari_ini',$data);
+        return view('backend.v_ak1_siapcetak',$data);
 
     }
 
-    public function daftargagal()
+    public function pengambilan()
     {
         $data =[
             'menu' =>$this->MenuModel->allData(),
@@ -78,7 +78,7 @@ class AdminController extends Controller
             'ak1_list' =>$this->Ak1Model->allData(),
         ];
 
-        return view('backend.v_daftargagal',$data);
+        return view('backend.v_ak1_pengambilan',$data);
 
     }
 

@@ -1,5 +1,5 @@
 @extends('layouts.v_template')
-@section('title','Daftar Gagal - v_daftargagal.blade.php')
+@section('title','Kartu Pekerja yang siap ambil - v_ak1_pengambilan.blade.php')
 @push('styles')
 
 @endpush
