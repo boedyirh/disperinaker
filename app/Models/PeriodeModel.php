@@ -29,10 +29,10 @@ class PeriodeModel extends Model
     public function getPeriodeAktif()
     {
         $rand_user = Auth::user()->rand_user;
-        // $periode = DB::table('users')
-        // ->where('rand_user',$rand_user)
-        // ->first(['periode_aktif']);
-        $periode = PeriodeModel::where('rand_user',$rand_user)->first(['periode_aktif']);
+        $periode = DB::table('users')
+        ->where('rand_user',$rand_user)
+        ->first(['periode_aktif']);
+        // $periode = PeriodeModel::where('rand_user',$rand_user)->first(['periode_aktif']);
         $user_periode = $periode->periode_aktif;
         return $user_periode;
     }
@@ -54,10 +54,10 @@ class PeriodeModel extends Model
     public function setPeriodeAktif($periode,$id)
     {
 
-        // DB::table('users')
-        // ->where('id',$id)
-        // ->update($periode);
-        PeriodeModel::where('id',$id)->update($periode);
+        DB::table('users')
+        ->where('id',$id)
+        ->update($periode);
+        // PeriodeModel::where('id',$id)->update($periode);
     }
 
 
