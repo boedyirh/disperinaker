@@ -1,6 +1,6 @@
 <div>
     <div class="col-md-12">
-        ak1-pengajuan.blade.php livewire
+        ak1-siapcetak.blade.php livewire
         <div class="box">
             @if (session('pesan_1'))
                 <script type="text/javascript">
