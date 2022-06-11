@@ -15,9 +15,11 @@ class Ak1PengajuanModel extends Model
 
     public function allData()
     {
-        return DB::table('tbl_ak1')
-        ->limit(200)
-        ->get();
+        // return DB::table('tbl_ak1')
+        // ->limit(200)
+        // ->get();
+
+        return Ak1PengajuanModel::limit(200)->get();
     }
 
 }

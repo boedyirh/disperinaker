@@ -14,13 +14,16 @@ class DataFotoModel extends Model
 
     public function detailFoto($rand_ak1)
     {
-        return DB::table('tbl_ak1_foto')->where('rand_ak1', $rand_ak1)
-        ->get();
+        // return DB::table('tbl_ak1_foto')->where('rand_ak1', $rand_ak1)
+        // ->get();
+
+        return DataFotoModel::where('rand_ak1', $rand_ak1)->get();
     }
 
     public function addFoto($data)
     {
-    return DB::table('tbl_ak1_foto')->insertGetId($data);
+    // return DB::table('tbl_ak1_foto')->insertGetId($data);
+    return DataFotoModel::insertGetId($data);
 
     }
 
@@ -29,8 +32,9 @@ class DataFotoModel extends Model
     public function cekFoto($rand_ak1){
 
         if($rand_ak1){
-            $cekfoto = DB::table('tbl_ak1_foto')->where('rand_ak1', $rand_ak1)
-            ->first();
+            // $cekfoto = DB::table('tbl_ak1_foto')->where('rand_ak1', $rand_ak1)->first();
+            $cekfoto = DataFotoModel::where('rand_ak1', $rand_ak1)->first();
+
             if (is_null($cekfoto)){
                 return false;
             } else {
@@ -42,18 +46,22 @@ class DataFotoModel extends Model
 
     public function updateFoto($data,$rand_ak1)
     {
-        DB::table('tbl_ak1_foto')
-        ->where('rand_ak1',$rand_ak1)
-        ->update($data);
+        // DB::table('tbl_ak1_foto')
+        // ->where('rand_ak1',$rand_ak1)
+        // ->update($data);
+
+        DataFotoModel::where('rand_ak1',$rand_ak1)->update($data);
 
     }
 
     public function clearFoto($rand_ak1)
     {
 
-        DB::table('tbl_ak1_foto')
-        ->where('rand_ak1',$rand_ak1)
-        ->delete();
+        // DB::table('tbl_ak1_foto')
+        // ->where('rand_ak1',$rand_ak1)
+        // ->delete();
+
+        DataFotoModel::where('rand_ak1',$rand_ak1)->delete();
 
     }
 

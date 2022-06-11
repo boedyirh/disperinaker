@@ -15,9 +15,11 @@ class Ak1SlotWawancaraModel extends Model
 
     public function updateLibur($tanggal,$data)
     {
-        DB::table('tbl_slot_wawancara')
-        ->where('tanggal',$tanggal)
-        ->update($data);
+        // DB::table('tbl_slot_wawancara')
+        // ->where('tanggal',$tanggal)
+        // ->update($data);
+
+        Ak1SlotWawancaraModel::where('tanggal',$tanggal)->update($data);
     }
 
 }

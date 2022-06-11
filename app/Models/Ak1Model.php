@@ -17,25 +17,35 @@ class Ak1Model extends Model
     public function addData($data)
     {
 
-    return DB::table('tbl_ak1')->insertGetId($data);
+    // return DB::table('tbl_ak1')->insertGetId($data);
+    return Ak1Model::insertGetId($data);
+
     }
 
     public function updateData($data,$rand_ak1)
     {
-        DB::table('tbl_ak1')
-        ->where('rand_ak1',$rand_ak1)
-        ->update($data);
+
+        // DB::table('tbl_ak1')
+        // ->where('rand_ak1',$rand_ak1)
+        // ->update($data);
+
+        Ak1Model::findOrFail($rand_ak1)->update($data);
     }
 
     public function detailFoto($rand_ak1)
-    {
-        return DB::table('tbl_ak1')->where('rand_ak1', $rand_ak1)
-        ->get();
+     {
+    //     return DB::table('tbl_ak1')->where('rand_ak1', $rand_ak1)
+    //     ->get();
+        return Ak1Model::where('rand_ak1', $rand_ak1)->get();
+
+
     }
     public function detailFotoxx($rand_ak1)
     {
         return DB::table('tbl_ak1_foto')->where('rand_ak1', $rand_ak1)
         ->first();
+
+        return Ak1Model::where('rand_ak1', $rand_ak1)->first();
     }
 
     public function clearFoto($rand_ak1)
@@ -44,34 +54,42 @@ class Ak1Model extends Model
             'foto_ktp' => '',
             'foto_diri' => '',
         ];
-        DB::table('tbl_ak1_foto')
-        ->where('rand_ak1',$rand_ak1)
-        ->update($data);
+        // DB::table('tbl_ak1_foto')
+        // ->where('rand_ak1',$rand_ak1)
+        // ->update($data);
+        Ak1Model::findOrFail($rand_ak1)->update($data);
 
     }
 
 
     public function allData()
     {
-        return DB::table('tbl_ak1')
-        ->limit(5)
-        ->get();
+        // return DB::table('tbl_ak1')
+        // ->limit(5)
+        // ->get();
+
+        return Ak1Model::limit(5)->get();
     }
 
 
 
     public function detailData($rand_ak1)
     {
-        return DB::table('tbl_ak1')->where('rand_ak1', $rand_ak1)
-        ->first();
+        // return DB::table('tbl_ak1')->where('rand_ak1', $rand_ak1)
+        // ->first();
+        return Ak1Model::where('rand_ak1', $rand_ak1)->first();
     }
 
 
 
     public function detailDataGet($rand_ak1)
     {
-        return DB::table('tbl_ak1')->where('rand_ak1', $rand_ak1)
-        ->get();
+        // return DB::table('tbl_ak1')->where('rand_ak1', $rand_ak1)
+        // ->get();
+
+        return Ak1Model::wherewhere('rand_ak1', $rand_ak1)->get();
+
+
     }
 
 

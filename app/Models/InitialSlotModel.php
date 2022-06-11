@@ -15,19 +15,23 @@ class InitialSlotModel extends Model
 
     public function getWaktuSlot($urutan,$kategori)
     {
-        $slot_waktu = DB::table('tbl_slot')
-        ->where('kategori',$kategori)
-        ->where('urutan',$urutan)
-        ->first();
-        return $slot_waktu;
+        // $slot_waktu = DB::table('tbl_slot')
+        // ->where('kategori',$kategori)
+        // ->where('urutan',$urutan)
+        // ->first();
+        // return $slot_waktu;
+
+        return InitialSlotModel::where('kategori',$kategori)->where('urutan',$urutan)->first();
     }
 
     public function getAllWaktuSlot($kategori)
     {
-        $slot_waktu = DB::table('tbl_slot')
-        ->where('kategori',$kategori)
-        ->get();
-        return $slot_waktu;
+        // $slot_waktu = DB::table('tbl_slot')
+        // ->where('kategori',$kategori)
+        // ->get();
+        // return $slot_waktu;
+        return InitialSlotModel::where('kategori',$kategori)->get();
+
     }
 
 }

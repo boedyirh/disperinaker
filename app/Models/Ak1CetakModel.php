@@ -15,9 +15,11 @@ class Ak1CetakModel extends Model
 
     public function getLastAgenda($year,$rand_ak1){
         //Check apakah sudah ada record dengan rand_id tersebut. Jika sudah ada ambil nomernya
-        if(DB::table('tbl_cetak')->where('tahun',$year)->where('rand_ak1',$rand_ak1)->orderBy('id', 'DESC')->first())
+        // if(DB::table('tbl_cetak')->where('tahun',$year)->where('rand_ak1',$rand_ak1)->orderBy('id', 'DESC')->first())
+        if(Ak1CetakModel::where('tahun',$rand_ak1)->where('rand_ak1',$rand_ak1)->orderBy('id', 'DESC')->first())
         {
-            $lastAgenda = DB::table('tbl_cetak')->where('tahun',$year)->orderBy('id', 'DESC')->first();
+            // $lastAgenda = DB::table('tbl_cetak')->where('tahun',$year)->orderBy('id', 'DESC')->first();
+            $lastAgenda = Ak1CetakModel::where('tahun',$rand_ak1)->where('rand_ak1',$rand_ak1)->orderBy('id', 'DESC')->first();
 
             $nomer_existing = $lastAgenda->nomer_urut;
             $tgl_ambil_existing = $lastAgenda->tgl_ambil;
@@ -29,9 +31,11 @@ class Ak1CetakModel extends Model
 
         } else{
 
-            if(DB::table('tbl_cetak')->where('tahun',$year)->orderBy('id', 'DESC')->first())
+            // if(DB::table('tbl_cetak')->where('tahun',$year)->orderBy('id', 'DESC')->first())
+            if(Ak1CetakModel::where('tahun',$year)->orderBy('id', 'DESC')->first())
             {
-                $lastAgenda = DB::table('tbl_cetak')->where('tahun',$year)->orderBy('id', 'DESC')->first();
+                // $lastAgenda = DB::table('tbl_cetak')->where('tahun',$year)->orderBy('id', 'DESC')->first();
+                $lastAgenda = Ak1CetakModel::where('tahun',$year)->orderBy('id', 'DESC')->first();
                 $lastAgenca_inc = $lastAgenda->nomer_urut+1;
                 $data= [
                     'nomer'=>$lastAgenca_inc,
@@ -59,12 +63,15 @@ class Ak1CetakModel extends Model
 
     public function addData($data)
     {
-        return DB::table('tbl_cetak')->insertGetId($data);
+        // return DB::table('tbl_cetak')->insertGetId($data);
+        return Ak1CetakModel::insertGetId($data);
+
     }
 
     public function checkNomer($rand_ak1)
     {
-        if(DB::table('tbl_cetak')->where('rand_ak1',$rand_ak1)->orderBy('id', 'DESC')->first())
+        // if(DB::table('tbl_cetak')->where('rand_ak1',$rand_ak1)->orderBy('id', 'DESC')->first())
+        if(Ak1CetakModel::where('rand_ak1',$rand_ak1)->orderBy('id', 'DESC')->first())
         {
             return true;
         } else {

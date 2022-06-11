@@ -20,9 +20,11 @@ class KecamatanModel extends Model
 
     public function dropdownKecamatan()
     {
-        return DB::table('tbl_kecamatan')
-        ->orderBy('nama_kecamatan', 'asc')
-        ->get(['kecamatan_id','nama_kecamatan']);
+        // return DB::table('tbl_kecamatan')
+        // ->orderBy('nama_kecamatan', 'asc')
+        // ->get(['kecamatan_id','nama_kecamatan']);
+
+        return KecamatanModel::orderBy('nama_kecamatan', 'asc')->get(['kecamatan_id','nama_kecamatan']);
     }
 
 

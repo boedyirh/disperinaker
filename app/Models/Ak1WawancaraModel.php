@@ -15,9 +15,11 @@ class Ak1WawancaraModel extends Model
 
     public function allData()
     {
-        return DB::table('tbl_wawancara')
-        ->limit(200)
-        ->get();
+        // return DB::table('tbl_wawancara')
+        // ->limit(200)
+        // ->get();
+
+        return Ak1WawancaraModel::limit(200)->get();
     }
 
 }
