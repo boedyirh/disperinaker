@@ -15,28 +15,33 @@ class PengalamankerjaAk1Model extends Model
 
     public function addPengalamankerja($data)
     {
-    return DB::table('tbl_ak1_pekerjaan')->insertGetId($data);
+    // return DB::table('tbl_ak1_pekerjaan')->insertGetId($data);
+    return PengalamankerjaAk1Model::insertGetId($data);
     }
 
     public function deletePengalamankerja($rand_ak1_pekerjaan)
     {
-        return DB::table('tbl_ak1_pekerjaan')->where('rand_ak1_pekerjaan', '=', $rand_ak1_pekerjaan)->delete();
-}
+        // return DB::table('tbl_ak1_pekerjaan')->where('rand_ak1_pekerjaan', '=', $rand_ak1_pekerjaan)->delete();
+        return PengalamankerjaAk1Model::where('rand_ak1_pekerjaan', '=', $rand_ak1_pekerjaan)->delete();
+    }
 
     public function updatePengalamankerja($data,$rand_ak1_pekerjaan)
     {
-        DB::table('tbl_ak1_pekerjaan')
-        ->where('rand_ak1_pekerjaan',$rand_ak1_pekerjaan)
-        ->update($data);
+        // DB::table('tbl_ak1_pekerjaan')
+        // ->where('rand_ak1_pekerjaan',$rand_ak1_pekerjaan)
+        // ->update($data);
+        PengalamankerjaAk1Model::where('rand_ak1_pekerjaan',$rand_ak1_pekerjaan)->update($data);
     }
 
     public function allData($rand_ak1)
     {
-        if(DB::table('tbl_ak1_pekerjaan')->where('rand_ak1',$rand_ak1)->where('NA',1)->get()->isNotEmpty()){
-            return DB::table('tbl_ak1_pekerjaan')
-            ->where('rand_ak1',$rand_ak1)
-            ->where('NA',1)
-            ->get();
+        // if(DB::table('tbl_ak1_pekerjaan')->where('rand_ak1',$rand_ak1)->where('NA',1)->get()->isNotEmpty()){
+        if( PengalamankerjaAk1Model::where('rand_ak1',$rand_ak1)->where('NA',1)->get()->isNotEmpty()){
+            // return DB::table('tbl_ak1_pekerjaan')
+            // ->where('rand_ak1',$rand_ak1)
+            // ->where('NA',1)
+            // ->get();
+            return PengalamankerjaAk1Model::where('rand_ak1',$rand_ak1)->where('NA',1)->get();
         }else{
 
             return NULL;
@@ -45,12 +50,14 @@ class PengalamankerjaAk1Model extends Model
 
     public function pdfData($rand_ak1)
     {
-        if(DB::table('tbl_ak1_pekerjaan')->where('rand_ak1',$rand_ak1)->where('NA',1)->get()->isNotEmpty()){
-            return DB::table('tbl_ak1_pekerjaan')
-            ->where('rand_ak1',$rand_ak1)
-            ->where('NA',1)
-            ->where('dipakai',1)
-            ->get();
+        // if(DB::table('tbl_ak1_pekerjaan')->where('rand_ak1',$rand_ak1)->where('NA',1)->get()->isNotEmpty()){
+        if(PengalamankerjaAk1Model::where('rand_ak1',$rand_ak1)->where('NA',1)->get()->isNotEmpty()){
+            // return DB::table('tbl_ak1_pekerjaan')
+            // ->where('rand_ak1',$rand_ak1)
+            // ->where('NA',1)
+            // ->where('dipakai',1)
+            // ->get();
+            return PengalamankerjaAk1Model::where('rand_ak1',$rand_ak1)->where('NA',1)->where('dipakai',1)->get();
         }else{
 
             return NULL;
