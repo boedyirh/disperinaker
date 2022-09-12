@@ -10,7 +10,7 @@ class Ak1Model extends Model
 {
     protected $table = 'tbl_ak1';
     protected $primaryKey = 'ak1_id';
-    // protected $fillable = ['name'];
+    protected $fillable = ['name'];
 
     use HasFactory;
 
@@ -91,17 +91,6 @@ class Ak1Model extends Model
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
     public function addFoto($data)
