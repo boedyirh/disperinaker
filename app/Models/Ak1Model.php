@@ -42,8 +42,8 @@ class Ak1Model extends Model
     }
     public function detailFotoxx($rand_ak1)
     {
-        return DB::table('tbl_ak1_foto')->where('rand_ak1', $rand_ak1)
-        ->first();
+        // return DB::table('tbl_ak1_foto')->where('rand_ak1', $rand_ak1)
+        // ->first();
 
         return Ak1Model::where('rand_ak1', $rand_ak1)->first();
     }
@@ -93,9 +93,18 @@ class Ak1Model extends Model
     }
 
 
-    public function addFoto($data)
+    public function addFoto($rand_ak1)
     {
-    return DB::table('tbl_ak1_foto')->insertGetId($data);
+    // return DB::table('tbl_ak1_foto')->insertGetId($data);
+
+    $data = [
+        'foto_ktp' => '',
+        'foto_diri' => '',
+    ];
+    // DB::table('tbl_ak1_foto')
+    // ->where('rand_ak1',$rand_ak1)
+    // ->update($data);
+    Ak1Model::findOrFail($rand_ak1)->update($data);
 
     }
 
@@ -106,6 +115,8 @@ class Ak1Model extends Model
         if($rand_ak1){
             $cekfoto = DB::table('tbl_ak1')->where('rand_ak1', $rand_ak1)
             ->first();
+
+
             if (is_null($cekfoto->foto_ktp)){
                 return false;
             } else {
